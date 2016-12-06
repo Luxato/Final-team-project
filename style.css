@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+    background-color: lightblue;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+hr {
+  border-top: 1px solid #ccc;
+}
+
+li.actual {
+  background-color: rgba(248, 248, 248, 0.45)!important;
+}
+
+.title {
+    color:#333 !important;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+#table {
+  margin-top: 20px;
+}
+
+.navbar-header {
+    float: none;
+}
+
+.navbar-default {
+    background-color: rgba(248, 248, 248, 0.35)!important;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: rgba(248, 248, 248, 0.45)!important;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #eee;
+}
+
+/*fixnute viacere bordery*/
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: none !important;
+}
+
+.sidebar ul li a.active {
+    background-color: #ddd;
+}
+
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 30px;
+}
+
+.sidebar .nav-third-level li a {
+    padding-left: 50px;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
