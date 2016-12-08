@@ -31,7 +31,7 @@ var Breadcrumb = function (current_page) {
             localStorage.setItem("pages", JSON.stringify(this.pages));
         } else {
             this.pages = JSON.parse(localStorage.pages);
-            if (this.pages.length > 5) {
+            if (this.pages.length >= 5) {
                 this.pages.shift();
             }
         }

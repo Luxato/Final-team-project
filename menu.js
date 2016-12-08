@@ -36,8 +36,7 @@ var menu = [
 		},
 		{ label: "Lukáš Stranovský", href: "hra_luky.html", class: "fa fa-level-down", items: 
 	    	[
-		   		{ label: "Povedz si kolko", href: "#", class: "" },
-		   		{ label: "podstránok potrebujes", href: "#", class: "" }
+		   		{ label: "Geografické puzzle", href: "hra_luky.html", class: "" }
 			]
 		},
 		{ label: "Patrik Eliáš", href: "hra_pato.html", class: "fa fa-level-down", items: 
