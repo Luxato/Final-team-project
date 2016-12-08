@@ -1,4 +1,4 @@
-# Webtechnologies-final-project
+# Webtechnologies final team project
 
 1. Návrh grafického dizajnu pomocou CSS len v externom súbore. Responzívny dizajn + prispôsobenie
 stránky pre tlač pomocou CSS.
@@ -31,8 +31,40 @@ rovnakej úrovni (automaticky podľa dĺžky textu v dlhšom z nich). Zobrazenie
 a pri tlači riešte pod sebou.
 Každý člen súboru dodá info do spoločného json súboru pamiatky.json, ktorý vytvorte v
 nasledovnom formáte
+```
 {"pamiatky":[
 {"nazov":"X1", "rokVzniku":“Y1", "sirka":"Z1a", "dlzka":"Z1b"},
 {"nazov":"X2", "rokVzniku":“Y2", "sirka":"Z2a", "dlzka":"Z2b"},
 {"nazov":"X3", "rokVzniku":“Y3", "sirka":"Z3a", "dlzka":"Z3b"}
 ]}
+```
+10. Vypracovanie individuálnej úlohy každým členom tímu – riešenie týchto úloh bude graficky
+zapracované do vytvorenej web stránky, inak budú strhnuté body.
+– V rámci individuálnej úlohy je potrebné, aby každý člen tímu naprogramoval jednu hru, v rámci
+ktorej bude použitá drag and drop technológia.
+– Hry je potrebné vyberať zo zoznamu hier, ktoré sú zverejnené vo fóre Námety na hry. V
+prípade, že chcete naprogramovať niečo vlastné, je to možné, ale hra musí byť predtým
+odsúhlasená prednášajúcou vo fóre. Odsúhlasovať sa budú predovšetkým logické hry (nie
+bojové) a odsúhlasovanie sa bude robiť len v pracovnom čase.
+– V tíme sa nesmie opakovať naprogramovanie tej istej hry.
+– Pri hraní hry treba zabezpečiť možnosť získavania bodov, pričom užívateľ bude o tomto počte
+bodov informovaný. Zároveň bude informovaný o najvyššom počte bodov, ktoré v svojej histórii
+hrania hry získal.
+– Súčasťou web stránky musí byť návod na riešenie danej úlohy, ktorý bude obsahovať aj popis
+vami zvoleného bodovania. 
+
+##Dodatky
+
+Súčasťou web stránky bude kontakt na všetkých autorov (môžu byť aj fotky ) a checklist,
+ktoré úlohy zo zadania boli splnené a kto čo robil – menovite. Checklist bude vo forme
+tabuľky, kde jednotlivé stĺpce budú zodpovedať osobám v projekte a riadky jednotlivým
+úlohám z predchádzajúcej fólie. Ako posledný riadok tabuľky uveďte, kto robil grafický
+návrh.
+
+• Ak autor nebude vedieť zodpovedať na otázku, ako naprogramoval danú časť, považuje sa to
+za nesplnené.
+
+• Všetci členovia kolektívu musia poznať a vedieť vysvetliť zdroják celého projektu (okrem
+individuálnych úloh).
+
+• Pri obhajobe sa môže pýtať na čokolvek...
