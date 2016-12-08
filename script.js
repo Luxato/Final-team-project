@@ -31,15 +31,13 @@ var Breadcrumb = function (current_page) {
             localStorage.setItem("pages", JSON.stringify(this.pages));
         } else {
             this.pages = JSON.parse(localStorage.pages);
-            if (this.pages.length >= 5) {
+            if (this.pages.length >= 5 && this.pages[this.pages.length - 1] != current_page) {
                 this.pages.shift();
             }
         }
         this.addPage(current_page);
     };
     this.addPage = function (webpage) {
-        console.log(this.pages[this.pages.length - 1]);
-        console.log(webpage);
         if (this.pages[this.pages.length - 1] != webpage) {
             this.pages.push(webpage);
         }
