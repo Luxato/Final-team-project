@@ -28,12 +28,7 @@ var menu = [
 		   		{ label: "podstránok potrebujes", href: "#", class: "" }
 			]
 		},
-		{ label: "Michal Paluš", href: "hra_michal.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Ja neviem koľko", href: "#", class: "" },
-		   		{ label: "budem potrebovať", href: "#", class: "" }
-			]
-		},
+		{ label: "Michal Paluš", href: "hra_michal.html", class: "fa fa-level-down"},
 		{ label: "Lukáš Stranovský", href: "hra_luky.html", class: "fa fa-level-down", items: 
 	    	[
 		   		{ label: "Povedz si kolko", href: "#", class: "" },

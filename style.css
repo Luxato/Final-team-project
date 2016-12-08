@@ -95,3 +95,7 @@ li.actual {
         border-left: 1px solid #e7e7e7;
     }
 }
+
+@media print {
+    /* nothing to do :D */
+}
