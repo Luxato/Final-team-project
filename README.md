@@ -1,8 +1,8 @@
 # Webtechnologies final team project
 
-1. Návrh grafického dizajnu pomocou CSS len v externom súbore. Responzívny dizajn + prispôsobenie
+*DONE*1. Návrh grafického dizajnu pomocou CSS len v externom súbore. Responzívny dizajn + prispôsobenie
 stránky pre tlač pomocou CSS.
-2. Trojúrovňové menu. Menu bude dynamicky generované na základe údajov, ktoré budú vložené v poli.
+*DONE*2. Trojúrovňové menu. Menu bude dynamicky generované na základe údajov, ktoré budú vložené v poli.
 3. Zobrazenie aktuálneho dátumu s meninami v daný deň. Súčasťou bude obojsmerné zisťovanie
 priradenia dátumu a mena, t.j. po zadaní dátumu sa vypíše, kto má v daný deň meniny a po zadaní
 mena sa vypíše, kedy má takáto osoba meniny. Pri zadávaní dátumu je potrebné zisťovať aj to, či je
@@ -14,7 +14,7 @@ formuláru sa bude dať vyhľadať aj meno bez diakritiky, pričom na veľkosti 
 medzi ostatnými úlohami na web stránke. Po zakliknutí, že je úloha spravená, sa úloha prestane
 zobrazovať.
 5. Zobrazenie počítadla osobných prístupov na stránku.
-6. Zobrazenie histórie prehliadania vo forme path-based breadcrumbs (5 posledných podstránok).
+*DONE*6. Zobrazenie histórie prehliadania vo forme path-based breadcrumbs (5 posledných podstránok).
 7. Zobrazenie mapy Slovenska s markermi ukazujúcimi na miesta, kde sa nachádzajú na stránke
 spracované technické pamiatky. Rozmiestnenie markerov sa bude robiť na základe GPS súradníc
 definovaných vo vytvorenom json súbore. Tento bod bude realizovaný v dvoch prevedeniach:
@@ -40,16 +40,21 @@ nasledovnom formáte
 ```
 10. Vypracovanie individuálnej úlohy každým členom tímu – riešenie týchto úloh bude graficky
 zapracované do vytvorenej web stránky, inak budú strhnuté body.
+
 – V rámci individuálnej úlohy je potrebné, aby každý člen tímu naprogramoval jednu hru, v rámci
 ktorej bude použitá drag and drop technológia.
+
 – Hry je potrebné vyberať zo zoznamu hier, ktoré sú zverejnené vo fóre Námety na hry. V
 prípade, že chcete naprogramovať niečo vlastné, je to možné, ale hra musí byť predtým
 odsúhlasená prednášajúcou vo fóre. Odsúhlasovať sa budú predovšetkým logické hry (nie
 bojové) a odsúhlasovanie sa bude robiť len v pracovnom čase.
+
 – V tíme sa nesmie opakovať naprogramovanie tej istej hry.
+
 – Pri hraní hry treba zabezpečiť možnosť získavania bodov, pričom užívateľ bude o tomto počte
 bodov informovaný. Zároveň bude informovaný o najvyššom počte bodov, ktoré v svojej histórii
 hrania hry získal.
+
 – Súčasťou web stránky musí byť návod na riešenie danej úlohy, ktorý bude obsahovať aj popis
 vami zvoleného bodovania. 
 
