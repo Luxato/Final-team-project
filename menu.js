@@ -22,34 +22,11 @@ var menu = [
 { label: "Úloha 9", href: "uloha9.html", class: "fa fa-building" },
 { label: "Hry", href: "#", class: "fa fa-gamepad", items:
 	[
-	    { label: "Tomáš Gono", href: "hra_tomas.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Zapalkove hlavolamy", href: "hra_tomas.html", class: "" },
-			]
-		},
-		{ label: "Michal Paluš", href: "hra_michal.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Ja neviem koľko", href: "#", class: "" },
-		   		{ label: "budem potrebovať", href: "#", class: "" }
-			]
-		},
-		{ label: "Lukáš Stranovský", href: "hra_luky.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Geografické puzzle", href: "hra_luky.html", class: "" }
-			]
-		},
-		{ label: "Patrik Eliáš", href: "hra_pato.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Povedz si kolko", href: "#", class: "" },
-		   		{ label: "podstránok potrebujes", href: "#", class: "" }
-			]
-		},
-		{ label: "Adrián Rybanský", href: "hra_ado.html", class: "fa fa-level-down", items: 
-	    	[
-		   		{ label: "Povedz si kolko", href: "#", class: "" },
-		   		{ label: "podstránok potrebujes", href: "#", class: "" }
-			]
-		}
+		{ label: "Tomáš Gono", href: "hra_tomas.html", class: "fa fa-gamepad"},
+		{ label: "Michal Paluš", href: "hra_michal.html", class: "fa fa-gamepad"},
+		{ label: "Lukáš Stránovský", href: "hra_luky.html", class: "fa fa-gamepad"},
+		{ label: "Patrik Eliáš", href: "hra_pato.html", class: "fa fa-gamepad"},
+		{ label: "Adrián Rybanský", href: "hra_ado.html", class: "fa fa-gamepad"}
 	]
 },
 { label: "Kontakt", href: "kontakt.html", class: "fa fa-phone" }
