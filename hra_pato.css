@@ -1,0 +1,102 @@
+/* CSS Document */
+
+a{
+	padding: -5px;
+	margin: -5px auto 0 auto;
+}
+
+body {
+    margin: 0;
+    font-size:100%;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-align:center;
+}     
+  
+#page { 
+    padding: 0;
+    margin: 0 auto;
+    width: 1200px;
+	color: white;
+}
+
+#ukazstav { 
+	position: absolute;
+	left:160px;
+	top: 480px;
+    width: 300px;
+    height: 80px;
+    border:2px solid black;
+}
+
+.box {
+    border-radius: 20px;
+    padding: 33px 20px 20px 10px;
+    margin-bottom: 20px;
+    width:600px; 
+    color: black;
+    background: white; 
+    box-shadow: 5px #334f60;
+   
+
+}
+
+#hra{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 400px;
+	 border:1px solid grey;
+}
+.box h2{
+	padding: 10px;
+}
+
+.input{
+	width: 40px;
+	margin-bottom: 20px;
+}
+#stlp{
+	margin-bottom: 0px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+.hanoi td{
+  width: 150px;
+  text-align:center;
+}
+
+.submit{
+	padding-bottom: 10px;
+}
+#tabulka{
+	margin-top: 50px;
+	    margin-bottom: -20px;
+}
+
+#tabulka td{
+	background: url(images/posttop.png) center no-repeat;
+}	
+#prazdne{
+	height: 20px;
+}
+
+#start{
+	margin-top: -25px;
+}
+
+#area{
+	position: absolute;
+	left:160px;
+	top: 400px;
+	margin-top: -220px;
+	text-align: center;
+}
+#kocka{
+	width: 100px;
+	height: 100px;
+	background: black;
+}
