@@ -69,9 +69,15 @@ function shuffle(array) {
 }
 
 
+function set_offsets()
+{
+  top_offset = $("#board").offset().top;
+    left_offset = $("#board").offset().left
+}
+
 function bestFit(zapalka, final)
 {
-  var eps=30;
+  var eps=40;
   var min=Number.POSITIVE_INFINITY;
   var min_pos = null;
   var pos=zapalka.getPosition();
@@ -224,6 +230,7 @@ function load(index) {
     destroy();
 
     var max_top = 0;
+    var max_left;
 
     destroyed=0;
     $("#desc").html ('<p class="title">' + games[index].desc + '</p>');
@@ -241,6 +248,12 @@ function load(index) {
     for(var i=0; i<zapalky.length; i++)
     {
       zapalky[i].setPosition(games[index].original[i].left, games[index].original[i].top);
+
+      if(parseInt(games[index].original[i].left) > max_left)
+      {
+        max_left = parseInt(games[index].original[i].left);
+      }
+
       if(parseInt(games[index].original[i].top) > max_top)
       {
         max_top = parseInt(games[index].original[i].top);
@@ -263,6 +276,7 @@ function load(index) {
       //alert("Gotten: " + p.left + " when i should have gotten: " + games[index].original[i].left);
     }*/
     $("#destroyer").setPosition(10,max_top + 120);
+    $("#board").width(max_left + 60);
 
 }
 
@@ -285,6 +299,7 @@ function load(index) {
 
   jQuery.fn.getPosition = function()
   {
+    set_offsets();
     var angle = $(this).getRotation();
     $(this).rotate(0);
     var Stoppos = $(this).offset();
@@ -311,6 +326,7 @@ function load(index) {
 
   jQuery.fn.setPosition = function(left,top)
   {
+    set_offsets();
     /*$(this).position({
       of: $(this).parent(),
       my: 'left+'  + left + ' top+' +  top,
