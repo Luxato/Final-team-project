@@ -24,8 +24,7 @@ var menu = [
 	[
 	    { label: "Tomáš Gono", href: "hra_tomas.html", class: "fa fa-level-down", items: 
 	    	[
-		   		{ label: "Povedz si kolko", href: "#", class: "" },
-		   		{ label: "podstránok potrebujes", href: "#", class: "" }
+		   		{ label: "Zapalkove hlavolamy", href: "hra_tomas.html", class: "" },
 			]
 		},
 		{ label: "Michal Paluš", href: "hra_michal.html", class: "fa fa-level-down", items: 
