@@ -1,34 +1,78 @@
 <!DOCTYPE html>
-  <html lang="sk"> 
-    <head>
-        <title>Hanojské veže</title>
-        <link rel="stylesheet" media="all" type="text/css" href="hanoi.css">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>                                                                            
-        <meta charset="utf-8">
-      
-    </head>
-    <body> 
-      <div id="page">  <!-- hlavny podklad -->
-         
-   
-          <div class="box">  
-          <h2>Hra Hanojské veže</h2>
-            <label for="pocet">Zadaj číslo od 3 do 6: </label>
-            <input class="input" type="text" id="pocet" name="pocet">
-            <button class="submit" type="submit"  onclick="zadane()">Zacni hrat</button>
-              
-                  
-            <div id='hra'></div>
-            <div id='score'></div>
-            <div id='click'></div>
-            <div id='percent'></div>
-           <div id="ukazstav"></div>
-            
-          
-          </div>
-         
-      <script type="text/javascript" src="hanoi.js">   </script>      
-      </div>
-    </body>
-  </html>
+<html lang="sk">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Trash game</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hra_pato.css">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand title" href="index.html">Trash game</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu"></ul>
+                </div>
+            </div>
+        </nav>
+        <script src="menu.js"></script>
+
+        <div id="page-wrapper">
+          <ul id="breadcrumb" class="breadcrumb"> </ul>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="page">
+                      <div class="box">  
+                      <h2>Hra Hanojské veže</h2>
+                        <label for="pocet">Zadaj číslo od 3 do 6: </label>
+                        <input class="input" type="text" id="pocet" name="pocet">
+                        <button class="submit" type="submit"  onclick="zadane()">Zacni hrat</button>
+                          
+                        <div id='hra'></div>
+                        <div id='score'></div>
+                        <div id='click'></div>
+                        <div id='percent'></div>
+                       <div id="ukazstav"></div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="hra_pato.js"></script>
+
+</body>
+
+</html>

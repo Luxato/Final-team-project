@@ -38,14 +38,18 @@ for(var i = 0; i < menu.length; i++) {
     var actualPath = (window.location.pathname).substring((window.location.pathname).lastIndexOf("/")+1);
     if (menu[i].href == actualPath) {
     	li.className += "actual";
-    	console.log(actualPath, menu[i].href);
     }
     var str = '<a href="'+menu[i].href+'"><i class="'+menu[i].class+'"></i> '+menu[i].label;
     if (menu[i].items) {
     	str += '<span class="fa arrow"></span></a>';
     	str += '<ul class="nav nav-second-level">';
     	for(var j = 0; j < menu[i].items.length; j++) {
-    		str += '<li><a href="'+menu[i].items[j].href+'"><i class="'+menu[i].items[j].class+'"></i> '+menu[i].items[j].label;
+    		if (menu[i].items[j].href == actualPath) {
+		    	str += '<li class="actual">';
+		    } else {
+		    	str += '<li>';
+		    }
+    		str += '<a href="'+menu[i].items[j].href+'"><i class="'+menu[i].items[j].class+'"></i> '+menu[i].items[j].label;
     		if (menu[i].items[j].items) {
 		    	str += '<span class="fa arrow"></span></a>';
 		    	str += '<ul class="nav nav-third-level">';

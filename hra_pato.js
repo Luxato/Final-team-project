@@ -1,6 +1,6 @@
 // JavaScript Document
 
-imgdir = 'images/';
+imgdir = 'img/';
 
 var score = 0;
 var clicks = 0;
