@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hra_michal.css">
 
 </head>
 
@@ -71,162 +72,11 @@
 
     </div>
 
-    <style>
-    #hra {
-        position: absolute;
-        border: 1px solid black;
-        display: block;
-        background-color: white;
-        width: 500px;
-        height: 500px;
-    }
-    #time, #points {
-        display: inline-block;
-    }
-    #score {
-        position: absolute;
-        left: 515px;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
-        background-color: white;
-        width: 120px;
-        height: 60px;
-        padding: 10px;
-    }
-    #results {
-        position: absolute;
-        left: 515px;
-        margin-top: 100px;
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
-        background-color: white;
-        width: 120px;
-        height: 260px;
-        padding: 10px;
-    }
-    #trash {
-        position: absolute;
-        background: url('http://icons.iconseeker.com/png/fullsize/nova/trash-3.png');
-        background-size: 100%;
-        width: 50px;
-        height: 50px;
-    }
-    #button {
-        position: absolute;
-        left:210px;
-        top:230px;
-    }
-    .trash-item {
-        background: url('http://static.tumblr.com/a88bbf90dbba93615994a693e5bbca24/rc2jtmg/FS9njuo6e/tumblr_static_cjxcr9bzsmosksg8kgwk40w8c.png');
-        background-size: 100%;
-        width: 40px;
-        height: 32px;
-        position: absolute;
-    }
-    .trash-item:hover {
-        cursor:move;
-    }
-    </style>
-
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-
-<script>
-    var countTrashItems = 1;
-    var overallTrashItems = 1;
-    var points = 0;
-    var sec = 0;
-    var speed = 1200;
-    var interval, interval2;
-
-    if (localStorage.points) {
-        $("#prevpoints").html(localStorage.points);
-        $("#prevtime").html(localStorage.seconds + " sek.");
-        $("#bestpoints").html(localStorage.bestPoints);
-        $("#besttime").html(localStorage.bestSeconds + " sek.");
-    } else {
-        $("#results").hide();
-    }
-
-    function randomPosition(){
-    
-        var h = $("#hra").height() - 50;
-        var w = $("#hra").width() - 50;
-
-        var nh = Math.floor(Math.random() * h);
-        var nw = Math.floor(Math.random() * w);
-
-        return [nh,nw];    
-
-    }
-
-    $("#button").click(function(){
-        moveTrash();
-        $("#button").fadeOut(300);
-        interval = setInterval(newTrashItem, 1200);
-        interval2 = setInterval( function(){
-            $("#time").html( (pad(parseInt(sec/60,10))) + ":" + (pad(++sec%60)) );
-        }, 1000);
-    });
-
-    function moveTrash(){
-        var newq = randomPosition();
-        $('#trash').animate({ top: newq[0], left: newq[1] }, speed*4, function(){;
-            if (countTrashItems <= 10)
-                moveTrash();        
-        });
-    };
-
-    function newTrashItem(){
-        var newq = randomPosition();
-        $("#hra").append("<div id='"+overallTrashItems+"' class='trash-item'>");
-        $("#hra").find("#"+overallTrashItems).css("top",newq[0]).css("left",newq[1]).draggable();
-
-        countTrashItems++;
-        overallTrashItems++;
-
-        speed = 1200-(sec*10);
-        if (speed < 500)
-            speed = 500;
-
-        clearInterval(interval);
-        interval = setInterval(newTrashItem, speed);
-
-
-        if (countTrashItems > 10) {
-            alert("Koniec hry, vaše skóre je: " + points);
-            localStorage.points = points;
-            localStorage.seconds = sec;
-            if (localStorage.bestPoints < points || typeof(localStorage.bestPoints) == "undefined")
-                localStorage.bestPoints = points;
-            if (localStorage.bestSeconds < sec || typeof(localStorage.bestSeconds) == "undefined")
-                localStorage.bestSeconds = sec;
-            clearInterval(interval);
-            clearInterval(interval2);
-            location.reload();
-        }
-    };
-
-    function pad(val) {
-        return val > 9 ? val : "0" + val;
-    }
-
-    $( function() {
-        $( ".trash-item" ).draggable();
-        $( "#trash" ).droppable({
-            drop: function( event, ui ) {
-                    $(ui.draggable).fadeOut(400);
-                    countTrashItems--;
-                    points++;
-                    $("#points").html(points);
-                }
-        });
-    });
-</script>
+    <script src="hra_michal.js"></script>
 
 </body>
 
