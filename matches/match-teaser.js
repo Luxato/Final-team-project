@@ -10,6 +10,45 @@ var left_offset=0;
 var top_offset=0;
 //var data = null;
 
+var timer;
+
+var total_seconds = 0;
+var total_minutes = 0;
+
+function reset_time()
+{
+  total_seconds = 0;
+  total_minutes = 0;
+}
+
+function start_timer()
+{
+  var seconds = 0;
+  var minutes= 0;
+  timer=setInterval(function()
+  {
+    total_seconds++;
+    if(total_seconds == 60)
+    {
+      total_seconds=0;
+      total_minutes++;
+    }
+    seconds++;
+    if(seconds == 60)
+    {
+      minutes++;
+      seconds=0;
+    }
+
+    $('#timer').html(minutes + ' : ' + seconds);
+  }, 1000);
+}
+
+function stopTimer()
+{
+  clearInterval(timer);
+}
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -114,6 +153,13 @@ function validate(index)
   }
   alert("finished");
   finalize(games[index].final);
+ // setTimeout(function(){
+   // console.log("managed to win")
+  //},3000);
+  stopTimer();
+  start_timer();
+  next();
+
   //alert(checked[2]);
   //alert(data.games[0]s[0].final[0].left);
 }
@@ -276,6 +322,19 @@ function load(index) {
     $(this).offset({ top: c, left: a })
   }
 
+function next() {
+  // body...
+  stopTimer();
+  start_timer();
+  index++;
+  if(index == games.length)
+  {
+    games=shuffle(data.games);
+    index=0;
+  }
+  load(index);
+
+}
 
   $( function() {
     
@@ -287,17 +346,17 @@ function load(index) {
 
     $("#startGame").click(function()
       {
+
         if(started)
         {
-          index++;
-          if(index == games.length)
-          {
-            games=shuffle(data.games);
-            index=0;
-          }
+          next();
+        }
+        else
+        {
+          load(index);
+          start_timer();
         }
         started=true;
-        load(index);
       });
 
     $("#restart").click( function()
@@ -326,6 +385,11 @@ function load(index) {
       {
         finalize(games[index].final);
       }
+    });
+
+    $("#stoptime").click(function()
+    {
+      stopTimer();
     });
     //alert(games[0].remove);
     
