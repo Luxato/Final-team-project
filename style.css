@@ -10,22 +10,22 @@ body {
 }
 
 hr {
-  border-top: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
 li.actual {
-  background-color: rgba(248, 248, 248, 0.45)!important;
+    background-color: rgba(248, 248, 248, 0.45) !important;
 }
 
 .title {
-    color:#333 !important;
+    color: #333 !important;
     text-align: center;
     width: 100%;
     font-weight: bold;
 }
 
 #table {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .navbar-header {
@@ -33,16 +33,16 @@ li.actual {
 }
 
 .navbar-default {
-    background-color: rgba(248, 248, 248, 0.35)!important;
+    background-color: rgba(248, 248, 248, 0.35) !important;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
-    background-color: rgba(248, 248, 248, 0.45)!important;
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: rgba(248, 248, 248, 0.45) !important;
 }
 
 #page-wrapper {
     padding: 0 15px;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .sidebar ul li {
@@ -96,6 +96,11 @@ li.actual {
     }
 }
 
+.breadcrumb > li + li:before {
+    font-family: FontAwesome;
+    content: "\f178" !important;
+}
+
 @media print {
-    /* nothing to do :D */
+    /*nothing to do*/
 }

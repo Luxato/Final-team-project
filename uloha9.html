@@ -9,55 +9,188 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Technické pamiatky</title>
+    <title>Technicke pamiatky</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #panel img {
+            float: left;
+            padding-right: 10px;
+        }
 
+        .year {
+            display: block;
+            font-weight: bold;
+        }
+
+        .custom-panel {
+            display: block;
+            position: relative;
+        }
+
+        #panel0::after, #panel1::after, #panel2::after, #panel3::after, #panel4::after, #panel5::after, #panel6::after, #panel7::after, #panel8::after, #panel9::after {
+            content: "";
+            opacity: 0.1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #panel0::after {
+            background: url(http://graphicdesignjunction.com/wp-content/uploads/2012/08/minimal-background-pattern-wordpress-12.jpg);
+        }
+
+        #panel1::after {
+            background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/03/background-pattern-design-31.jpg);
+        }
+
+        #panel2::after {
+            background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/02/background-pattern-design-11.jpg);
+        }
+
+        #panel3::after {
+            background: url(http://previews.123rf.com/images/tomo00/tomo001502/tomo00150200253/37091775-Background-wallpaper-material-background-pattern-patterns-Illuminations-Illuminated-neon-sign-light--Stock-Vector.jpg);
+        }
+
+        #panel4::after {
+            background: url(http://www.noupe.com/wp-content/uploads/2009/10/pattern-13.jpg);
+        }
+
+        #panel5::after {
+            background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/05/pattern-46.jpg);
+        }
+
+        #panel6::after {
+            background: url(http://graphicdesignjunction.com/wp-content/uploads/2012/04/background-pattern-14.jpg);
+        }
+
+        #panel7::after {
+            background: url(http://www.easyfreepatterns.com/patterns/124/-free-eps-neon-light-beam-vector-backgrounds-set-01-download-124428.jpg);
+        }
+
+        #panel8::after {
+            background: url(http://www.pixeden.com/media/k2/galleries/220/003-wood-melamine-subttle-pattern-background-pat.jpg);
+        }
+
+        #panel9::after {
+            background: url(http://line25.com/wp-content/uploads/2011/backgrounds/05.jpg);
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand title" href="index.html">Technické pamiatky</a>
-            </div>
-            <!-- /.navbar-header -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand title" href="index.html">Technické pamiatky</a>
+        </div>
+        <!-- /.navbar-header -->
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu"></ul>
-                </div>
-            </div>
-        </nav>
-        <script src="menu.js"></script>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Jour kontent gows hir</h2>
-                </div>
-            </div>
-            <div class="row">
-                
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu"></ul>
             </div>
         </div>
+    </nav>
+    <script src="menu.js"></script>
 
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul id="breadcrumb" class="breadcrumb">
+                </ul>
+                <h1 style="text-align: center;">Vybrané technické pamiatky</h1>
+                <div class="">
+                    <div id="panel" class="row">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<script>
+    new Breadcrumb('Technicke pamiatky');
+
+    var attach = {
+        0: {
+            'image': 'img/stary-most.jpg',
+            'content': 'Starý most (pôvodne: Most Františka Jozefa) je most cez Dunaj v Bratislave. Postupne niesol ďalšie mená: Franz-Josef-Brücke, Ferencz József-híd, po prvej svetovej vojne Štefánikov most, po druhej svetovej vojne Most Červenej armády. V čase jeho uzatvorenia bol najstarší pevný most cez Dunaj na území Bratislavy. V januári 2016 prebehla kolaudácia nového mosta. Pozostáva zo železnej konštrukcie vyrobenej vo Vítkovických železiarňach, umiestnenej na kamenných pilieroch. Je dlhý 460 m. Je na ňom drevený chodník a jednokoľajová železničná trať (ktorá nepokračuje na žiadnom konci mosta). Do roku 2010 tu bola aj dvojpruhová cestná komunikácia. Tá bola najprv vo večerných hodinách 31. decembra 2008 uzavretá pre všetky druhy dopravy okrem MHD a od 14. mája 2010 aj pre MHD. Následne bola pre havarijný stav mosta demontovaná. Od konca novembra 2013 prebiehala jeho demontáž, pričom z tohto dôvodu bol od 2. decembra 2013 uzavretý pre všetku dopravu.'
+        },
+        1: {
+            'image': 'img/bojnicky-zamok.jpg',
+            'content': 'Bojnický zámok je romantický zámok, s čiastočne ponechaným pôvodne gotickým a renesančným základom hradu. Nachádza sa v trenčianskom kraji a leží na západnom okraji mesta Bojnice. Zámok je viditeľný z väčšej časti horného Ponitria. Je postavený na travertínovej skale a tvorí ho vnútorný a vonkajší hrad s tromi nádvoriami. V roku 1970 bol vyhlásený za Národnú kultúrnu pamiatku.'
+        }
+    };
+
+    function getRandomColor() {
+        var letters = 'BCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * letters.length)];
+        }
+        return color;
+    }
+    function isOdd(num) {
+        if (num % 2) return true;
+        return false;
+
+    }
+
+    var patterns = [
+        'http://graphicdesignjunction.com/wp-content/uploads/2012/08/minimal-background-pattern-wordpress-12.jpg',
+        'http://graphicdesignjunction.com/wp-content/uploads/2011/03/background-pattern-design-31.jpg'
+    ];
+    $.getJSON('pamiatky.json', function (data) {
+        var current_height = 0;
+        var i = 0;
+        for (var index in data.pamiatky) {
+            $('#panel').append('<div id="panel' + i + '" class="col-md-6 custom-panel" style="border:1px solid ' + getRandomColor() + ';background-color: ' + getRandomColor() + ';">'
+                + '<h2>' + data.pamiatky[index].nazov + '</h2>'
+                + '<img src="' + attach[index].image + '" alt="Obrazok" width="200">'
+                + '<span class="year">Rok vzniku: ' + data.pamiatky[index].rokVzniku + '</span>'
+                + '<div>' + attach[index].content + '</div>'
+                + '</div>');
+            console.log($('#panel' + i + '').height());
+            if (current_height < $('#panel' + i + '').height()) {
+                current_height = $('#panel' + i + '').height() + 60;
+            }
+            if (isOdd(i)) {
+                $('#panel' + i + '').css({'height': current_height});
+                $('#panel' + (i - 1) + '').css({'height': current_height});
+                current_height = 0;
+            }
+            i++;
+        }
+    });
+
+</script>
 
 </body>
 

@@ -21,3 +21,35 @@ function resizeContainer() {
 }
 
 window.addEventListener("resize", resizeContainer);
+
+
+// Path base breadcrumb
+var Breadcrumb = function (current_page) {
+    this.pages = [current_page];
+    this.init = function () {
+        if(typeof localStorage.pages == 'undefined') {
+            localStorage.setItem("pages", JSON.stringify(this.pages));
+        } else {
+            this.pages = JSON.parse(localStorage.pages);
+            if (this.pages.length >= 5 && this.pages[this.pages.length - 1] != current_page) {
+                this.pages.shift();
+            }
+        }
+        this.addPage(current_page);
+    };
+    this.addPage = function (webpage) {
+        if (this.pages[this.pages.length - 1] != webpage) {
+            this.pages.push(webpage);
+        }
+        localStorage.setItem("pages", JSON.stringify(this.pages));
+    };
+    this.draw = function () {
+        var breadcrumb = $('#breadcrumb');
+        for (var page in this.pages) {
+            console.log("<li><a href='#'>"+this.pages[page]+"</a></li>");
+        	breadcrumb.append("<li><a href='#'>"+this.pages[page]+"</a></li>");
+        }
+    };
+    this.init();
+    this.draw();
+};

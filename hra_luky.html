@@ -9,56 +9,464 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Technické pamiatky</title>
+    <title>Geograficke puzzle</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
 
+        .ui-widget-content {
+            border: none;
+            background: transparent;
+        }
+
+        #draggable, #draggable2, #draggable3, #draggable4, #draggable5, #draggable6 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+
+        #draggable2 {
+            position: relative;
+            top: -198px;
+        }
+
+        #draggable3 {
+            position: relative;
+            top: -249px;
+        }
+
+        #draggable4 {
+            position: relative;
+            top: -568px;
+        }
+
+        #draggable5 {
+            position: relative;
+            top: -750px;
+        }
+
+        #draggable6 {
+            position: relative;
+            top: -731px;
+        }
+
+        .storage, #tutorial, #bubble, #evaluation, .none {
+            display: none;
+        }
+
+        #gui button {
+            margin: 8px auto;
+            display: block;
+            width: 150px;
+        }
+
+        #gui img {
+            margin: 0 auto;
+            display: block;
+        }
+
+        #einstein {
+            position: absolute;
+            bottom: 0;
+        }
+
+        #next {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            width: 150px;
+            font-size: 22px;
+        }
+
+        #bubble {
+            width: 510px;
+            position: absolute;
+            left: 653px;
+            top: 255px;
+        }
+
+        #bubble-img {
+            width: 550px;
+        }
+
+        #bubble-block {
+            position: relative;
+        }
+
+        #bubble-text {
+            position: absolute;
+            top: -290px;
+            left: 115px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        #namebox {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        #name {
+            position: relative;
+            top: 285px;
+        }
+
+        #evaluation button {
+            margin: 8px auto;
+            display: block;
+            width: 150px;
+        }
+
+        #evaluation {
+            width: 350px;
+            margin: 25px auto 0 auto;
+            background: sandybrown;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        #evaluation img {
+            padding: 0;
+            border-top: 1px solid dimgray;
+            border-bottom: 1px solid dimgray;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand title" href="index.html">Technické pamiatky</a>
-            </div>
-            <!-- /.navbar-header -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand title" href="index.html">Technické pamiatky</a>
+        </div>
+        <!-- /.navbar-header -->
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu"></ul>
-                </div>
-            </div>
-        </nav>
-        <script src="menu.js"></script>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Jour kontent gows hir</h2>
-                </div>
-            </div>
-            <div class="row">
-                
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu"></ul>
             </div>
         </div>
+    </nav>
+    <script src="menu.js"></script>
 
+    <div id="page-wrapper">
+        <ul id="breadcrumb" class="breadcrumb">
+        </ul>
+        <div class="row">
+            <div id="evaluation" class="none">
+                <h1>Evaluation</h1>
+                <ul>
+                    <li>North America: <span>0</span></li>
+                    <li>South America: <span>0</span></li>
+                    <li>Euroasia: <span>0</span></li>
+                    <li>Africa: <span>0</span></li>
+                    <li>Australia: <span>0</span></li>
+                    <li>Arctica: <span>0</span></li>
+                </ul>
+                <img src="geo_puzzle/img/einstein2.png" alt="einstein" width="300">
+                <button id="playAgain" type="button" class="btn btn-primary">Play again</button>
+                <button type="button" class="btn btn-primary">Highscore</button>
+            </div>
+            <div class="storage">
+                <div id="draggable" class="ui-widget-content">
+                    <img src="geo_puzzle/map/euroasia.png" alt="euroasia">
+                </div>
+                <div id="draggable2" class="ui-widget-content">
+                    <img src="geo_puzzle/map/north_america.png" alt="north_america" width="400">
+                </div>
+                <div id="draggable3" class="ui-widget-content">
+                    <img src="geo_puzzle/map/australia.png" alt="north_america" width="180">
+                </div>
+                <div id="draggable4" class="ui-widget-content">
+                    <img src="geo_puzzle/map/south_america.png" alt="south_america" width="230">
+                </div>
+                <div id="draggable5" class="ui-widget-content">
+                    <img src="geo_puzzle/map/africa.png" alt="south_america" width="330">
+                </div>
+                <div id="draggable6" class="ui-widget-content">
+                    <img src="geo_puzzle/map/antarctica.png" alt="south_america" width="300">
+                </div>
+                <div style="position: absolute;top: 90px;right: 28px; padding: 10px; border: 1px dotted red;">
+                    <h3>Instructions</h3>
+                    <ul>
+                        <li>
+                            Put continets in positions, where you think they might been.
+                        </li>
+                        <li>
+                            Click on button done when you will be done.
+                        </li>
+                    </ul>
+                    <button id="done" type="button" class="btn btn-success">Done</button>
+                </div>
+            </div>
+            <div id="gui">
+                <img src="http://i872.photobucket.com/albums/ab287/Concordo/world.gif" alt="world">
+                <button id="play" type="button" class="btn btn-primary">Play</button>
+                <button type="button" class="btn btn-primary">Highscore</button>
+            </div>
+            <div id="namebox" class="none">
+                <input id="name" type="text" class="form-control" placeholder="Write your name alien!">
+            </div>
+            <div id="tutorial">
+                <img id="einstein" src="geo_puzzle/img/einstein.png" alt="Einstein">
+                <div id="bubble">
+                    <img id="bubble-img" src="geo_puzzle/img/bubble.png" alt="Bubble">
+                    <div id="bubble-block">
+                        <div id="bubble-text">
+                            Hello Alien!
+                            I have task for ya
+                        </div>
+                    </div>
+                </div>
+                <button id="next" type="button" class="btn btn-success none">Next</button>
+            </div>
+
+
+        </div>
+        <div class="row">
+
+        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+</div>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="script.js"></script>
+<script>
+    new Breadcrumb('Geografické puzzle');
+</script>
+<script>
+    $(function () {
+        var name = '';
+
+        var world = {
+            northamerica: {
+                x: 0,
+                y: 0,
+                keyx: 59,
+                keyy: 105,
+                points: 0
+            },
+            southamerica: {
+                x: 0,
+                y: 0,
+                keyx: 123,
+                keyy: 337,
+                points: 0
+            },
+            arctica: {
+                x: 0,
+                y: 0,
+                keyx: 387,
+                keyy: 761,
+                points: 0
+            },
+            euroasia: {
+                x: 0,
+                y: 0,
+                keyx: 734,
+                keyy: 66,
+                points: 0
+            },
+            africa: {
+                x: 0,
+                y: 0,
+                keyx: 627,
+                keyy: 305,
+                points: 0
+            },
+            australia: {
+                x: 0,
+                y: 0,
+                keyx: 1126,
+                keyy: 659,
+                points: 0
+            }
+        };
+
+        $("#draggable").draggable(
+            {
+                drag: function () {
+                    var offset = $(this).offset();
+                    var xPos = offset.left;
+                    var yPos = offset.top;
+                    world.euroasia.x = xPos;
+                    world.euroasia.y = yPos;
+                    world.euroasia.points = evaluation(xPos, yPos, world.euroasia.keyx, world.euroasia.keyy);
+                }
+            });
+        $("#draggable2").draggable({
+            drag: function () {
+                var offset = $(this).offset();
+                var xPos = offset.left;
+                var yPos = offset.top;
+                world.northamerica.x = xPos;
+                world.northamerica.y = yPos;
+                world.northamerica.points = evaluation(xPos, yPos, world.northamerica.keyx, world.northamerica.keyy);
+            }
+        });
+        $("#draggable3").draggable({
+            drag: function () {
+                var offset = $(this).offset();
+                var xPos = offset.left;
+                var yPos = offset.top;
+                world.australia.x = xPos;
+                world.australia.y = yPos;
+                world.australia.points = evaluation(xPos, yPos, world.australia.keyx, world.australia.keyy);
+            }
+        });
+        $("#draggable4").draggable({
+            drag: function () {
+                var offset = $(this).offset();
+                var xPos = offset.left;
+                var yPos = offset.top;
+                world.southamerica.x = xPos;
+                world.southamerica.y = yPos;
+                world.southamerica.points = evaluation(xPos, yPos, world.southamerica.keyx, world.southamerica.keyy);
+            }
+        });
+        $("#draggable5").draggable({
+            drag: function () {
+                var offset = $(this).offset();
+                var xPos = offset.left;
+                var yPos = offset.top;
+                world.africa.x = xPos;
+                world.africa.y = yPos;
+                world.africa.points = evaluation(xPos, yPos, world.africa.keyx, world.africa.keyy);
+            }
+        });
+        $("#draggable6").draggable({
+            drag: function () {
+                var offset = $(this).offset();
+                var xPos = offset.left;
+                var yPos = offset.top;
+                world.arctica.x = xPos;
+                world.arctica.y = yPos;
+                world.arctica.points = evaluation(xPos, yPos, world.arctica.keyx, world.arctica.keyy);
+            }
+        });
+
+        $('#play').on('click', function () {
+            $('#gui').fadeOut('slow', function () {
+                $('#tutorial').fadeIn('slow', function () {
+                    $('#bubble').fadeIn('slow', function () {
+                        $('#next').fadeIn('slow');
+                    });
+                });
+            });
+        });
+
+        var i = 0;
+        $('#next').on('click', function () {
+            if (i == 0) {
+                $('#bubble-text').fadeOut('slow', function () {
+                    $('#bubble-text').text('But first, I need to know what\'s your name');
+                    $('#bubble-text').css({
+                        "top": "-313px",
+                        "left": "136px"
+                    });
+                    $('#bubble-text').fadeIn('slow');
+                });
+            }
+            if (i == 1) {
+                $('#einstein').fadeOut('slow');
+                $('#bubble').fadeOut('slow');
+                $('#next').fadeOut('slow');
+                $('#namebox').fadeIn('slow');
+                $('#namebox').on('keydown', function () {
+                    $('#next').fadeIn('slow');
+                });
+            }
+            if (i == 2) {
+                $('#namebox').fadeOut('slow');
+                name = $('#name').val();
+                $('#bubble-text').css({
+                    "top": "-349px",
+                    "left": "136px"
+                });
+                $('#bubble-text').text(name + '! Let\'s help dumb people to arrange continents on Earth');
+                $('#einstein').fadeIn('slow', function () {
+                    $('#bubble').fadeIn('slow', function () {
+                        $('#next').fadeIn('slow');
+                    });
+                });
+            }
+            if (i == 3) {
+                $('#tutorial').fadeOut('slow', function () {
+                    $('.storage').fadeIn('slow');
+                })
+            }
+            i++;
+        });
+
+        $('#done').on('click', function () {
+            var points = 0;
+            var l = 0;
+            for (var variable in world) {
+                //console.log(world[variable]);
+                $($('#evaluation ul li').find('span')[l]).text(world[variable].points);
+                points += world[variable].points;
+                l++
+            }
+            $('.storage').fadeOut('slow', function () {
+                $('#evaluation').fadeIn('slow');
+            });
+        });
+
+        $('#playAgain').on('click', function () {
+            window.location.replace("http://localhost/zapocet/");
+        })
+    });
+
+    function evaluation(x, y, keyx, keyy) {
+        var points = 10;
+        var tolerance = 15;
+        while (true) {
+            if (between(Math.abs(x), Math.abs(keyx) - tolerance, Math.abs(keyx) + tolerance)) {
+                if (between(Math.abs(y), Math.abs(keyy) - tolerance, Math.abs(keyy) + tolerance)) {
+                    return points;
+                } else {
+                    points -= 1;
+                }
+            } else {
+                points -= 1;
+            }
+            tolerance += 35;
+            if (points == 0) {
+                return points;
+            }
+        }
+    }
+
+    function between(x, min, max) {
+        return x >= min && x <= max;
+    }
+</script>
 </body>
 
 </html>

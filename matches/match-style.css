@@ -1,0 +1,9 @@
+
+#board { height: 650px }
+.match {padding: 0; margin: 0}
+
+#desc { padding: 25px;  }
+
+#destroyer {float: right; width: 320px; height: 150px; border:solid; }
+
+.destroyed {display: none}
