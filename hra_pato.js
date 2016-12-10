@@ -3,32 +3,26 @@
 imgdir = 'img/';
 
 var score = 0;
-var clicks = 0;
+var kliky = 0;
 var selectedr = null;
 var selectedc = null;
-var startpost = 1;
-var endpost = (startpost-1 < 0 ? 2 : startpost-1);
 var game_is_over = false;
 var show_messages = false;
 var maxdisks;
-var disks;
-var board = new Array(2);
+var plocha = new Array(2);
 var theAnim;
-  var yourclicks;
-  var yourscore;
-  var percentOk;
 
 
-function initboard(startpost, disks) {
-  var len = board[0].length;
+function nastavVezu(disks) {
+  var len = plocha[0].length;
   
   for (i = 0; i < len; i++) {
-    board[0][i] = 0;
-    board[1][i] = 0;
-    board[2][i] = 0;
+    plocha[0][i] = 0;
+    plocha[1][i] = 0;
+    plocha[2][i] = 0;
   }
   for (i = len-disks, j = 0; i < len; i++, j++) {
-    board[startpost][i] = len - j - 1;
+    plocha[1][i] = len - j - 1;
   }
 
 }
@@ -48,48 +42,45 @@ function message(str, force) {
 }
 
 function isempty(num) {
-  for (i = 0; i < board[num].length; i++) {
-    if ( board[num][i] != 0) 
+  for (i = 0; i < plocha[num].length; i++) {
+    if ( plocha[num][i] != 0) 
     return false;
   }
   return true;
 }
 
 function topmost(num) {
-  for (i = 0; i < board[num].length; i++) {
-    if (board[num][i] != 0) 
+  for (i = 0; i < plocha[num].length; i++) {
+    if (plocha[num][i] != 0) 
       return  i;
   }
   return -1;
 }
 
 function ispost(i,j) {
-  return (board[j][i] == 0);
+  return (plocha[j][i] == 0);
 }
 
 
         
-function drawboard() {
+function nakresliHru() {
   var draw = '';
   draw += "<table id=\"tabulka\" class=\"hanoi\" cellspacing=0 cellpadding=0 border=0>";
   draw += "<tr>";
 
-  for (j = 0; j < board.length; j++) {
+  for (j = 0; j < plocha.length; j++) {
     draw += "<td>";
-    for (i=0; i< board[0].length; i++) {
+    for (i=0; i< plocha[0].length; i++) {
       if(i==1){
-      draw += "<a href='javascript:clicked("+i+","+j+")'>";
-      draw += "<img id=\"stlp\"  src='" + imgdir + getName(board[j][i]) + "' name='pos"+ j + i + "' border=0>";
+      draw += "<a href='javascript:zakliknute("+i+","+j+")'>";
+      draw += "<img id=\"stlp\"  src='" + imgdir + getName(plocha[j][i]) + "' name='pos"+ j + i + "' border=0>";
       draw += "</a>";
       }
       else{
-        draw += "<a href='javascript:clicked("+i+","+j+")'>";
-        draw += "<img id=\"stlp\"  src='" + imgdir + getName(board[j][i]) + "' name='pos"+ j + i + "' border=0>";
+        draw += "<a href='javascript:zakliknute("+i+","+j+")'>";
+        draw += "<img id=\"stlp\"  src='" + imgdir + getName(plocha[j][i]) + "' name='pos"+ j + i + "' border=0>";
         draw += "</a>";
       }
-      
-      
-
 
     }
     draw += "</td>";
@@ -97,8 +88,7 @@ function drawboard() {
   draw += "</tr></table><br>";
 
   draw += "<form name='disp'><textarea id=\"area\" name='message' wrap=virtual rows=2 cols=40></textarea><br>";
-  draw += "<button value=\"Start\" id=\"start\" onclick=\"window.location.reload();\">Začni novú hru</button>";
-   draw += "<button onclick=\"stav()\">Pozri stav</button> <br><br>";
+  draw += '<div id="stav"></div>'
    
   
   document.getElementById('hra').innerHTML = draw;
@@ -128,11 +118,11 @@ function initdrag() {
   });
 }
 
-function animate(x,y,name) {
+function animuj(x,y,name) {
   theAnim.addFrame( "pos"+x+""+y, imgdir + name);
 }    
 
-function clicked(i,j) {
+function zakliknute(i,j) {
   
   document.forms[0].message.focus(); 
   document.forms[0].message.blur();
@@ -149,7 +139,7 @@ function clicked(i,j) {
   if (!ispost(i,j)) { 
     //spustim dragable
   
-    toggle(j);  
+    stlacenie(j);  
     return; 
   };
   if (ispost(i,j) && selectedc == j) { 
@@ -157,58 +147,48 @@ function clicked(i,j) {
 
     return; 
   }
-  if (!legalmove(j)) { 
+  if (!bodovanie(j)) { 
     message("Nemozes to tu umiestnit."); 
   
     return; 
   }
-  move(j); 
+  pohyb(j); 
   return;
 }
 
 
 
-function legalmove(j) {
+function bodovanie(j) {
 
   if (isempty(j)){ 
     score++;
-    yourscore = 'Počet premiestnení: ' + score;
-    document.getElementById('score').innerHTML = yourscore;
-    clicks++;
-    yourclicks = 'Počet pokusov o premiestnenie: ' + clicks;
-    document.getElementById('click').innerHTML = yourclicks;
-    percentOk = 'Úspešnosť vašej hry: ' + score/clicks*100;
-    document.getElementById('percent').innerHTML = percentOk;
+    kliky++;
+     document.getElementById('stav').innerHTML = 'Počet posunov: ' 
+    + kliky + '<br>' + 'Úspešnosť vašej hry: ' + score/kliky*100;
     return true;
   }
-  if(board[j][topmost(j)] < board[selectedc][selectedr]) 
+  if(plocha[j][topmost(j)] < plocha[selectedc][selectedr]) 
     score++;
-  clicks++;
-  yourclicks = 'Počet pokusov o premiestnenie: ' + clicks;
-  yourscore = 'Počet premiestnení: ' + score;
-  document.getElementById('click').innerHTML = yourclicks;
-  document.getElementById('score').innerHTML = yourscore;
-  percentOk = 'Úspešnosť vašej hry: ' + score/clicks*100;
-  document.getElementById('percent').innerHTML = percentOk;
-  return (board[j][topmost(j)] < board[selectedc][selectedr]);
+    kliky++;
+   document.getElementById('stav').innerHTML = 'Počet premiestnení: ' 
+    + kliky + '<br>' + 'Úspešnosť vašej hry: ' + score/kliky*100;
+ 
+  return (plocha[j][topmost(j)] < plocha[selectedc][selectedr]);
 }
 
-function stav() {
-  document.getElementById('ukazstav').innerHTML = 'Pocet realnych premiestneni:' + score + '<br>' + 'Pocet pokusov o premiestnenie:' + clicks + '<br>' + 'Ucinnost vasej strategie:' + score/clicks*100 ;
 
-}
 
 
 function isselection() {
   return selectedc != null;
 }
 
-function toggle( num ) {
+function stlacenie( num ) {
   var toppos = topmost(num);
   
   if (selectedc == num && selectedr == toppos) {                        
     selectedc = null; selectedr = null;
-    animate(num,toppos,"disk" + board[num][toppos] + ".png");
+    animuj(num,toppos,"disk" + plocha[num][toppos] + ".png");
     message("Vyber kus na presun");
     
       
@@ -216,21 +196,21 @@ function toggle( num ) {
   }
   if (isselection()) {
 
-    animate(selectedc,selectedr,"disk" + board[selectedc][selectedr] + ".png");  
+    animuj(selectedc,selectedr,"disk" + plocha[selectedc][selectedr] + ".png");  
    
   }
   selectedc = num; selectedr = toppos;
-  animate(num,toppos,"disk" + (board[num][toppos]+6) + ".png");
+  animuj(num,toppos,"disk" + (plocha[num][toppos]+6) + ".png");
 
   message("Vyber si miesto, kde chces premiestnit kus.");
 }
 
-function move( num ) {
-  var toppos = (!isempty(num) ? topmost(num) : board[num].length);
-  board[num][toppos-1] = board[selectedc][selectedr];
-  board[selectedc][selectedr] = 0;
-  animate(selectedc,selectedr,"post.png");
-  animate(num,toppos-1,"disk" + board[num][toppos-1] + ".png");
+function pohyb( num ) {
+  var toppos = (!isempty(num) ? topmost(num) : plocha[num].length);
+  plocha[num][toppos-1] = plocha[selectedc][selectedr];
+  plocha[selectedc][selectedr] = 0;
+  animuj(selectedc,selectedr,"post.png");
+  animuj(num,toppos-1,"disk" + plocha[num][toppos-1] + ".png");
   selectedc = null; selectedr = null;
 
   message("Vyber kus na presun.");
@@ -240,16 +220,15 @@ function move( num ) {
 function game_over(forceMsg) {
   var filledpost = null;
   var val = 0;
-  for (k = 0; k < board.length; k++)  {
+  for (k = 0; k < plocha.length; k++)  {
     val += ( isempty(k) ? 1 : 0 );
     if (!isempty(k))
       filledpost = k;
   }
   
-  if (val == 2 && isempty(startpost)) {
+  if (val == 2 && isempty(1)) {
     message("Vyhral si!", forceMsg);
     game_is_over = true;
-    endpost = filledpost;
   }
   return game_is_over;
 }
@@ -298,24 +277,35 @@ function drawnextframe() {
   }
 }
 
+function validacia(pocet){
+    if(pocet<3){
+      alert('Zadaj cislo od 3 do 6 !!');
+      window.location.reload();
+    }
+    if(pocet>6){
+      alert('Zadaj cislo od 3 do 6 !!');
+      window.location.reload();
+    }
+
+}
 
 
 function zadane(){
 var pocet = parseInt( document.getElementById('pocet').value);
+
+validacia(pocet);
 
   for (var i = 0; i <13; i++) {
     this[i] = new Image();
     this[i].src = imgdir + "disk"+[i+1]+".png";
   }
 
-    maxdisks = pocet;
-    disks = pocet;
 
-board[0] = new Array(maxdisks + 1);
-board[1] = new Array(maxdisks + 1);
-board[2] = new Array(maxdisks + 1);
-initboard(startpost, disks);
-drawboard();
+plocha[0] = new Array(pocet + 1);
+plocha[1] = new Array(pocet + 1);
+plocha[2] = new Array(pocet + 1);
+nastavVezu(pocet);
+nakresliHru();
 
  theAnim = new Animation();
 

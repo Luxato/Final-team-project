@@ -7,7 +7,7 @@ a{
 
 body {
     margin: 0;
-    font-size:100%;
+    font-size:12px;
     font-family: Georgia, "Times New Roman", Times, serif;
     text-align:center;
 }     
@@ -39,6 +39,10 @@ body {
    
 
 }
+img{
+	border-radius: 5px;
+}
+
 
 #hra{
 	padding-top: 20px;
@@ -47,6 +51,7 @@ body {
 	margin-left: auto;
 	width: 400px;
 	 border:1px solid grey;
+	 border-radius: 5px;
 }
 .box h2{
 	padding: 10px;
@@ -54,6 +59,7 @@ body {
 
 .input{
 	width: 40px;
+	text-align: center;
 	margin-bottom: 20px;
 }
 #stlp{
@@ -70,7 +76,6 @@ body {
 }
 
 .submit{
-	padding-bottom: 10px;
 }
 #tabulka{
 	margin-top: 50px;
@@ -78,7 +83,7 @@ body {
 }
 
 #tabulka td{
-	background: url(img/posttop.png) center no-repeat;
+	background: url(img/td.png) center no-repeat;
 }	
 #prazdne{
 	height: 20px;
@@ -90,10 +95,11 @@ body {
 
 #area{
 	position: absolute;
-	left:160px;
+	left:180px;
 	top: 400px;
 	margin-top: -220px;
 	text-align: center;
+	border: none;
 }
 #kocka{
 	width: 100px;

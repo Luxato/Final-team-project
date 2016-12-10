@@ -1,4 +1,9 @@
 {"pamiatky":[
   {"nazov":"Starý most Františka Jozefa I.", "rokVzniku":"1891", "sirka":"48.1384738", "dlzka":"17.1172951"},
-  {"nazov":"Bojnický hrad", "rokVzniku":"14.st.", "sirka":"48.7798829", "dlzka":"18.5778259"}
+  {"nazov":"Bojnický hrad", "rokVzniku":"14.st.", "sirka":"48.7798829", "dlzka":"18.5778259"},
+  {"nazov":"Železničná stanica Leopoldov", "rokVzniku": "1872", "sirka": "48.441806", "dlzka": "17.759105"},
+  {"nazov":"Parná elektráreň v Poprade", "rokVzniku": "1912", "sirka": "49.058159", "dlzka": "20.297818"},
+  {"nazov":"Manufaktúra na Majoliku", "rokVzniku": "1883", "sirka": "48.3327632", "dlzka": "17.3092483"},
+  {"nazov":"Mlyn strojový Mojmírovce", "rokVzniku": "1926", "sirka": "49.209495", "dlzka": "20.054033"}
   ]}
+

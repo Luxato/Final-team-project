@@ -1,0 +1,13 @@
+#map2_holder {position: relative;}
+
+.marker_show:hover + aside {display: inline-block}
+
+.marker_cont aside {display: none; background-color: lightblue;
+ color: black ; position: absolute; 
+ left: 30px; width: 150px; padding:0.1em; border-style: inset; border-color: #e6ccff; z-index: 2}
+
+ div {
+    font-family: Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
