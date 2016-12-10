@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 body {
     background-color: lightblue;
     font-family: 'Open Sans', sans-serif;
@@ -36,7 +35,8 @@ li.actual {
     background-color: rgba(248, 248, 248, 0.35) !important;
 }
 
-.nav > li > a:focus, .nav > li > a:hover {
+.nav > li > a:focus,
+.nav > li > a:hover {
     background-color: rgba(248, 248, 248, 0.45) !important;
 }
 
@@ -49,7 +49,9 @@ li.actual {
     border-bottom: 1px solid #eee;
 }
 
+
 /*fixnute viacere bordery*/
+
 .sidebar .nav-second-level li,
 .sidebar .nav-third-level li {
     border-bottom: none !important;
@@ -105,8 +107,10 @@ li.actual {
     /*nothing to do*/
 }
 
+
 /*Uloha4 pripomienkovac - PAtirk Eliáš*/
-#pripomienkovac{
+
+#pripomienkovac {
     font-family: 'Open Sans', sans-serif;
     position: absolute;
     left: 50px;
@@ -114,14 +118,14 @@ li.actual {
     height: 300pc;
 }
 
-#pripomienky{
+#pripomienky {
     padding: 0px 50px 50px 50px;
 }
 
-#pripomienky button{
-     margin-top: 40px;
+#pripomienky button {
+    margin-top: 40px;
     background: #C7E3EC;
-    padding:7px;
+    padding: 7px;
     padding-left: 12px;
     padding-right: 12px;
     border: 1px solid white;
@@ -129,53 +133,62 @@ li.actual {
     margin-left: 0px;
 }
 
-#pripomienky button:hover{
+#pripomienky button:hover {
     background: #DDECF1;
 }
-#listTask input{
+
+#listTask input {
     margin-right: 10px;
     margin-top: 10px;
 }
-#list{
+
+#list {
     color: #337ab7;
     margin-left: 10px;
-
 }
+
 
 /*Koniec Uloha4 pripomienkovac - PAtirk Eliáš*/
 
+
 /*Uloha3 pripomienkovac - PAtirk Eliáš*/
-#meniny{
+
+#meniny {
     color: #337ab7;
 }
-#meniny button{
+
+#meniny button {
     background: #C7E3EC;
     margin-top: 10px;
-    padding:7px;
+    padding: 7px;
     padding-left: 12px;
     padding-right: 12px;
     border: 1px solid white;
     color: #337ab7;
 }
-#meniny button:hover{
+
+#meniny button:hover {
     background: #DDECF1;
 }
-#tp1{
+
+#tp1 {
     display: inline;
     margin-left: 5px;
 }
-#datum, #meno{
-    padding:2px;
-      width: 70px;
-      margin-left: 4px;
-      border: 1px solid white
 
+#datum,
+#meno {
+    padding: 2px;
+    width: 70px;
+    margin-left: 4px;
+    border: 1px solid white
 }
 
-#meno{
+#meno {
     width: 170px;
 }
-#zisteneMeno{
+
+#zisteneMeno {
     margin-left: 110px;
     margin-top: -55px;
     margin-bottom: 20px;
@@ -184,8 +197,85 @@ li.actual {
     padding: 7px;
     display: none;
 }
-#zistenyDatum{
+
+#zistenyDatum {
     margin-left: 120px;
     margin-top: -27px;
     font-weight: bold;
+}
+
+#panel img {
+    float: left;
+    padding-right: 10px;
+}
+
+.year {
+    display: block;
+    font-weight: bold;
+}
+
+.custom-panel {
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+#panel0::after,
+#panel1::after,
+#panel2::after,
+#panel3::after,
+#panel4::after,
+#panel5::after,
+#panel6::after,
+#panel7::after,
+#panel8::after,
+#panel9::after {
+    content: "";
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+#panel0::after {
+    background: url(http://graphicdesignjunction.com/wp-content/uploads/2012/08/minimal-background-pattern-wordpress-12.jpg);
+}
+
+#panel1::after {
+    background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/03/background-pattern-design-31.jpg);
+}
+
+#panel2::after {
+    background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/02/background-pattern-design-11.jpg);
+}
+
+#panel3::after {
+    background: url(http://previews.123rf.com/images/tomo00/tomo001502/tomo00150200253/37091775-Background-wallpaper-material-background-pattern-patterns-Illuminations-Illuminated-neon-sign-light--Stock-Vector.jpg);
+}
+
+#panel4::after {
+    background: url(http://www.noupe.com/wp-content/uploads/2009/10/pattern-13.jpg);
+}
+
+#panel5::after {
+    background: url(http://graphicdesignjunction.com/wp-content/uploads/2011/05/pattern-46.jpg);
+}
+
+#panel6::after {
+    background: url(http://graphicdesignjunction.com/wp-content/uploads/2012/04/background-pattern-14.jpg);
+}
+
+#panel7::after {
+    background: url(http://www.easyfreepatterns.com/patterns/124/-free-eps-neon-light-beam-vector-backgrounds-set-01-download-124428.jpg);
+}
+
+#panel8::after {
+    background: url(http://www.pixeden.com/media/k2/galleries/220/003-wood-melamine-subttle-pattern-background-pat.jpg);
+}
+
+#panel9::after {
+    background: url(http://line25.com/wp-content/uploads/2011/backgrounds/05.jpg);
 }

@@ -14,10 +14,10 @@ var menu = [
 { label: "Úloha 4", href: "uloha4.html", class: "fa fa-bell" },
 { label: "Úloha 5", href: "uloha5.html", class: "fa fa-calculator" },
 { label: "Úloha 7", href: "#", class: "fa fa-map-o", items: 
-	    	[
-		   		{ label: "Prevedenie 1", href: "uloha7_1.html", class: "fa fa-globe" },
-		   		{ label: "Prevedenie 2", href: "uloha7_2.html", class: "fa fa-map" }
-			]},
+	[
+   		{ label: "Prevedenie 1", href: "uloha7_1.html", class: "fa fa-globe" },
+   		{ label: "Prevedenie 2", href: "uloha7_2.html", class: "fa fa-map" }
+	]},
 { label: "Úloha 9", href: "uloha9.html", class: "fa fa-building" },
 { label: "Hry", href: "#", class: "fa fa-gamepad", items:
 	[

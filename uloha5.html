@@ -46,7 +46,8 @@
             <ul id="breadcrumb" class="breadcrumb"> </ul>
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Jour kontent gows hir</h2>
+                    Počet prístupov na túto stránku: <div id="count" class="button"></div>
+                    <button id="reset_counter" class="button">Reset Counter</button>
                 </div>
             </div>
             <div class="row">
@@ -59,6 +60,24 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <script>
+        var pocitadlo = localStorage.getItem('load_counter');
+
+        if (pocitadlo === null) {
+            pocitadlo = 0;
+        }
+        pocitadlo++;
+        localStorage.setItem("load_counter", pocitadlo);
+
+        document.getElementById('count').innerHTML = pocitadlo;
+
+        function reset_counter() {
+            localStorage.removeItem('load_counter');
+        }
+
+        document.getElementById('reset_counter').addEventListener('click', reset_counter);
+    </script>
 
 </body>
 

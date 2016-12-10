@@ -62,38 +62,44 @@ new Breadcrumb();
 // Uloha4 - pripomienkovac - Patrik Eliáš
 
 function deleteAll(){ 
-    localStorage.clear();
+    localStorage.setItem("reminder", "\"\"");
     napisPripomienku();
- 
 }
 
 function vytvorPripomienku(){
-  var name=prompt("Napíš pripomienku.");
-  localStorage.setItem(name, "");
-  napisPripomienku();
+    var name = JSON.parse(localStorage.getItem("reminder"));
+    var val = prompt("Napíš pripomienku.");
+    if (name == null || name == "") {
+        name = [];
+        name[0] = val;
+    } else {
+        name[name.length] = val;
+    }
+    localStorage.setItem("reminder", JSON.stringify(name));
+    napisPripomienku();
   }
 
 function napisPripomienku(){
-  var list = '<div class="list" id="list">';;
-  for(i=0;i<localStorage.length;i++){
-      list += '<input ' + localStorage.key(i) + '" type="checkbox" name="' + localStorage.key(i) + '" onMouseUp="vymazPripomienku(' + i + ')">';
-      list += localStorage.key(i) + ' <br>';
-    
+  var data = "";
+  var list = '<div class="list" id="list">';
+  if (typeof(localStorage.reminder) != "undefined") {
+    data = JSON.parse(localStorage.reminder);
+  }
+  for(i=0;i<data.length;i++){
+      list += '<input type="checkbox" name="' + data[i] + '" onMouseUp="vymazPripomienku(' + i + ')">';
+      list += data[i] + ' <br>';
   }
   list += '</div>';
   document.getElementById('listTask').innerHTML = list;
 }
 
 function vymazPripomienku(i){
-  localStorage.removeItem(localStorage.key(i));
-  napisPripomienku(); 
+    var data = JSON.parse(localStorage.reminder);
+    data.splice(i, 1);
+    localStorage.setItem("reminder", JSON.stringify(data));
+    napisPripomienku(); 
 } 
 
-function deleteAll(){ 
-    localStorage.clear();
-    napisPripomienku();
- 
-}  
 // Koniec uloha4 Pripomienkovac - PAtrik Eliáš
 // 
 // Uloha3 - meniny - Patrik Eliáš
@@ -121,12 +127,6 @@ var currentDate = new Date();
 var day = currentDate.getDate()   ;
 var month = currentDate.getMonth() + 1  ;
 var year = currentDate.getFullYear()   ;
-    
-window.onload = function(){ 
-    var datum = "<b>" + day + "." + month + "." + year + "</b>";
-    document.getElementById("aktualnyDen").innerHTML += datum + "  Dnes má meniny ";
-    start();
-}
 
 function meninyDnes(){
     if(month==1){
@@ -415,8 +415,4 @@ function Tooltip( tooltip_id ) {
 function schovajTooltip( tooltip_id ) {
   document.getElementById( tooltip_id ).style.display = "none";
 }
-
-
-
-
 

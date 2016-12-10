@@ -9,11 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Technické pamiatky</title>
+    <title>Tangram</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="hra_ado.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/caiuss/1.0.2/caiuss.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" type="text/css" media="screen" charset="utf-8">
 
 </head>
 
@@ -46,8 +51,41 @@
             <ul id="breadcrumb" class="breadcrumb"> </ul>
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Jour kontent gows hir</h2>
+                    
+                    <div id="frame"></div>
+                    <div id="block">
+
+                        <div id="triangle1" class="rotate draggable"></div>
+                        <div id="triangle2" class="rotate draggable"></div>
+                        <div id="triangle3" class="rotate draggable"></div>
+                        <div id="triangle4" class="rotate draggable"></div>
+                        <div id="triangle5" class="rotate draggable"></div>
+                        <div id="square" class=" rotate draggable"></div>
+                        <div id="parallelogram" class="rotate draggable">
+                        <div id="top-triangle"></div>
+                        <div id="middle-square"></div>
+                        <div id="bottom-triangle"></div>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="sidebar">
+                            <div class="sidebar-item" onclick="showTutorial()">
+                                <span class="octicon octicon-question"></span>
+                            </div>
+                    </div>
+                        <button class="button" onclick="stopCount()">End</button>
+                        <button class="button" type="button" id="solution">Show solution</button>
+                        <div id="txt">
+                        <button class="button" onclick="startCount()">Start Game</button>
+                            </div>
+                            <button class="button" type="button" id="random">Random</button>
+                        <button class="button" onclick="reset()">Reset</button>
+
+
+                    </div>
+
                 </div>
+
             </div>
             <div class="row">
                 
@@ -59,6 +97,8 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="hra_ado.js"></script>
 
 </body>
 
