@@ -12,27 +12,26 @@ var top_offset=0;
 
 var timer;
 
-var total_seconds = 0;
-var total_minutes = 0;
 
-function reset_time()
-{
-  total_seconds = 0;
-  total_minutes = 0;
+var score = 0;
+
+var shown = false;
+
+var zp=false;
+
+function reset_time() {
+  // body...
+  seconds = 0;
+  minutes= 0;
+  $('#timer').html('0 : 0');
 }
 
 function start_timer()
 {
-  var seconds = 0;
-  var minutes= 0;
+  
   timer=setInterval(function()
   {
-    total_seconds++;
-    if(total_seconds == 60)
-    {
-      total_seconds=0;
-      total_minutes++;
-    }
+    
     seconds++;
     if(seconds == 60)
     {
@@ -157,8 +156,20 @@ function validate(index)
    // alert ("not removed enough");
     return;
   }
+
+  if(shown)
+  {
+    //alert ("videl si vysledok nie je to fer");
+    return;
+  }
+
   alert("finished");
   finalize(games[index].final);
+if(zp == false)
+{
+  score += (200 - (minutes * 60 + seconds)) * parseInt(games[index].diff);
+  reset_time();
+}
  // setTimeout(function(){
    // console.log("managed to win")
   //},3000);
@@ -191,7 +202,9 @@ function finalize(final)
 
 function destroy()
 {
+  $("#destroyer").hide();
   $(".match").remove();
+  $("#score").html("");
 }
 
 function setUp()
@@ -228,7 +241,8 @@ function setUp()
 
 function load(index) {
     destroy();
-
+    shown=false;
+    $("#destroyer").show();
     var max_top = 0;
     var max_left = 0;
 
@@ -340,18 +354,40 @@ function load(index) {
 function next() {
   // body...
   stopTimer();
-  start_timer();
+  
   index++;
   if(index == games.length)
   {
+    alert("final ");
     games=shuffle(data.games);
     index=0;
+    destroy();
+    var highScore = 0;
+      if(localStorage.getItem("zapalkyScore") !== null)
+      {
+        highScore = parseInt(localStorage.getItem("zapalkyScore"));
+      }
+
+      if (score > highScore)
+      {
+        highScore = score;
+      }
+      $("#score").html("Terajšie skóre je " + score + "<br>Najvyššie skóre je " + highScore );
+      localStorage.setItem("zapalkyScore",highScore);
   }
-  load(index);
+  else
+  {
+    start_timer();
+    load(index);
+  }
 
 }
 
+
+
   $( function() {
+
+    destroy();
     
     //$('#board').draggable();
     //$('#1st').setPosition(200,300);
@@ -361,13 +397,15 @@ function next() {
 
     $("#startGame").click(function()
       {
-
+        reset_time();
+        //zp=false;
         if(started)
         {
           next();
         }
         else
         {
+          score=0;
           load(index);
           start_timer();
         }
@@ -379,6 +417,8 @@ function next() {
         if(started)
         {
           load(index);
+          stopTimer();
+          start_timer();
         }
       });
 
@@ -399,12 +439,35 @@ function next() {
       if(started)
       {
         finalize(games[index].final);
+        shown=true;
+        zp=true;
       }
     });
 
     $("#stoptime").click(function()
     {
+      destroy();
       stopTimer();
+    });
+
+    $("#showScore").click(function () {
+      destroy();
+      stopTimer();
+      var highScore = 0;
+      
+
+      if(localStorage.getItem("zapalkyScore") !== null)
+      {
+        highScore = parseInt(localStorage.getItem("zapalkyScore"));
+      }
+
+      if (score > highScore)
+      {
+        highScore = score;
+      }
+      $("#score").html("Terajšie skóre je " + score + "<br>Najvyššie skóre je " + highScore );
+      localStorage.setItem("zapalkyScore",highScore);
+
     });
     //alert(games[0].remove);
     
