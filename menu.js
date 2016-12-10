@@ -18,7 +18,6 @@ var menu = [
 		   		{ label: "Prevedenie 1", href: "uloha7_1.html", class: "fa fa-globe" },
 		   		{ label: "Prevedenie 2", href: "uloha7_2.html", class: "fa fa-map" }
 			]},
-{ label: "Úloha 8", href: "uloha8.html", class: "fa fa-code-fork" },
 { label: "Úloha 9", href: "uloha9.html", class: "fa fa-building" },
 { label: "Hry", href: "#", class: "fa fa-gamepad", items:
 	[

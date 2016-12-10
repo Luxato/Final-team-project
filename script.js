@@ -34,7 +34,7 @@ var Breadcrumb = function() {
                 this.pages.shift();
             }
             this.addPage(text+"|"+href);
-            while (this.pages.length >= 6) {
+            if (this.pages.length >= 6) {
                 this.pages.shift();
             }
         }
