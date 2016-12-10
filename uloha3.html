@@ -46,7 +46,32 @@
             <ul id="breadcrumb" class="breadcrumb"> </ul>
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Jour kontent gows hir</h2>
+                    
+                    <div id="meniny">
+                    <div id="aktualnyDen"></div> <br>
+                        <label for="datum">Zadaj dátum:</label>
+                        <input class="input" type="text" id="datum" name="datum"
+                            ria-describedby="tp1"
+                            onFocus="Tooltip('tp1')"
+                            onBlur="schovajTooltip('tp1')"
+                            onMouseOver="Tooltip('tp1')"
+                            onMouseOut="schovajTooltip('tp1')"
+                            onKeyDown="Tooltip(event,'tp1')"/>
+                            
+                         <div id="tp1" role="tooltip">Zadaj dátum vo formáte dd.mm.</div><br>
+                        <button onClick="ZistiMeno()">Zisti meno:</button><br><br>
+
+                        <div id="zisteneMeno"></div>     
+                        <label for="datum">Zadaj meno:</label>
+                        <input class="input" type="text" id="meno" name="meno" onBlur="ZistiDatum()"/><br>
+                        <button onClick="ZistiDatum()">Zisti dátum</button><br/>  
+                        <div id="zistenyDatum"></div>
+                    </div>
+
+
+
+
+
                 </div>
             </div>
             <div class="row">
@@ -55,7 +80,7 @@
         </div>
 
     </div>
-
+      <script src="<?= URL::to( '/' ); ?>/assets/administration/plugins/ckeditor/ckeditor.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="script.js"></script>
