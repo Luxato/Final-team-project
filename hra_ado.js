@@ -89,9 +89,10 @@ window.showTutorial = function () {
         , text: "<ul>" +
         "    <li>Cieľom hry je zložiť štvorec vo vyznačenej ploche</li>" +
         "    <li>Na začiatku, pre náhľad riešenia, kliknite na  <strong>Show Solution</strong></li>" +
-        "    <li>Pred začatím hry, kliknite na <strong>Start Game</strong></li>" +
         "    <li><strong>Ľavé tlačidlo myši:</strong>: Otočiť vľavo</li>" +
         "    <li><strong>Držanie ľav. tlačidla:</strong>: Pohyb </li>" +
+        "    <li>Pre ukončenie hry kliknite na tlačítko <strong>END</strong></li>" +
+        "    <li>Útvar ste úspešne zložili, ak získate skóre <strong>100 bodov</strong></li>" +
         "</ul>"
     })
 };
