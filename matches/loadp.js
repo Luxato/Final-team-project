@@ -3,6 +3,7 @@ var data= {"games": [
     {
       "desc" : "1 Premiestni jednu zapalku aby platila rovnost",
       "remove" : "0",
+      "diff" : "1",
       "original": [
         {"left": "16", "top": "100","rot": "90"},
         {"left": "66", "top": "100", "rot": "90"},
@@ -28,6 +29,7 @@ var data= {"games": [
     {
       "desc" : "2 Premiestnite dve zápalky tak, aby ste dostali 11 rovnakých štvorcov.",
       "remove" : "0",
+      "diff" : "2",
       "original": [
         {"left": "10", "top": "250","rot": "90"},
         {"left": "90", "top": "250", "rot": "90"},
@@ -59,6 +61,7 @@ var data= {"games": [
     {
       "desc": "3 Pridajte jednu zápalku tak, aby platila rovnosť.",
       "remove": "0",
+      "diff" : "1",
       "original": [
         {"left": "16", "top": "30", "rot" : "180"},
         {"left": "16", "top": "170", "rot" : "180"},
@@ -107,6 +110,7 @@ var data= {"games": [
     {
       "desc" : "4 Premiestnite dve zápalky tak, aby platila rovnosť.",
       "remove" : "0",
+      "diff" : "2",
       "original": [
         {"left" : "36", "top" : "100", "rot" : "135"},
         {"left" : "36", "top" : "100", "rot" : "45"},
@@ -135,6 +139,7 @@ var data= {"games": [
     {
       "desc": "5 Odoberte dve zápalky tak, aby ostali iba 2 štvorce, pričom jeden je vľavo hore.",
       "remove": "2",
+      "diff" : "4",
       "original": [
         {"left": "0", "top": "90", "rot" : "90"},
         {"left": "0", "top": "230", "rot" : "90"},
@@ -165,6 +170,7 @@ var data= {"games": [
     {
       "desc": "6 Pridajte ďalšie tri zápalky tak, aby ste dostali päť rovnostranných trojuholníkov.",
       "remove": "0",
+      "diff" : "4",
       "original": [
         {"left" : "0", "top" : "200", "rot" : "135"},
         {"left" : "120", "top" : "90", "rot" : "135"},
@@ -191,6 +197,7 @@ var data= {"games": [
     {
       "desc": "7 Premiestnite dve zápalky tak, aby ste dostali tri veľké a štyri malé štvorce (v pravo dole).",
       "remove": "0",
+      "diff" : "5",
       "original": [
         {"left": "0", "top": "90", "rot" : "90"},
         {"left": "0", "top": "230", "rot" : "90"},
@@ -223,6 +230,7 @@ var data= {"games": [
     {
       "desc": "8 Odoberte šesť zápalok tak, aby ostali iba 2 štvorce, menší vľavo dole.",
       "remove": "6",
+      "diff" : "7",
       "original": [
         {"left": "0", "top": "90", "rot" : "90"},
         {"left": "0", "top": "230", "rot" : "90"},
@@ -259,6 +267,7 @@ var data= {"games": [
     {
       "desc" : "9 Opravte chybnú rovnicu premiestnením jednej zápalky.",
       "remove" : "0",
+      "diff" : "2",
       "original": [
         {"left" : "36", "top" : "80", "rot" : "135"},
         {"left" : "36", "top" : "80", "rot" : "45"},
@@ -292,6 +301,7 @@ var data= {"games": [
     {
       "desc" : "10 Premiestnite štyri zápalky tak, aby ste dostali 5 rovnostranných trojuholníkov.",
       "remove" : "0",
+      "diff" : "7",
       "original": [
         {"left" : "306", "top" : "80", "rot" : "135"},
         {"left" : "186", "top" : "80", "rot" : "45"},

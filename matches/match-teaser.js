@@ -77,7 +77,7 @@ function set_offsets()
 
 function bestFit(zapalka, final)
 {
-  var eps=40;
+  var eps=50;
   var min=Number.POSITIVE_INFINITY;
   var min_pos = null;
   var pos=zapalka.getPosition();
@@ -90,8 +90,8 @@ function bestFit(zapalka, final)
     //alert(" scitam " + final[i].left + " s " + eps + " a  dostavam: " +  left_high);
     var top_low = +final[i].top - eps;
     var top_high = +final[i].top +  +eps;
-    var rot_low = +final[i].rot - 10;
-    var rot_high = +final[i].rot + 10;
+    var rot_low = +final[i].rot + 0;
+    var rot_high = +final[i].rot + 180;
     //alert("testing againsts " + final[i].left + " " + final[i].top);
     if((pos.left > left_low) && (pos.left < left_high))
     {
@@ -99,7 +99,7 @@ function bestFit(zapalka, final)
       if((pos.top > top_low) &&(pos.top < top_high))
       {
        // alert(pos.top + " in " + top_low + " " + top_high);
-        if((zapalka.getRotation() > rot_low) && (zapalka.getRotation() < rot_high))
+        if((zapalka.getRotation() == rot_low) || (zapalka.getRotation() == rot_high))
         {
          // alert("matched");
           var dis = Math.sqrt(Math.pow((pos.left - final[i].left),2) + Math.pow((pos.top - final[i].top),2));
@@ -230,7 +230,7 @@ function load(index) {
     destroy();
 
     var max_top = 0;
-    var max_left;
+    var max_left = 0;
 
     destroyed=0;
     $("#desc").html ('<p class="title">' + games[index].desc + '</p>');
@@ -275,9 +275,8 @@ function load(index) {
       var p = zapalky[i].getPosition();
       //alert("Gotten: " + p.left + " when i should have gotten: " + games[index].original[i].left);
     }*/
-    $("#destroyer").setPosition(10,max_top + 120);
-    $("#board").width(max_left + 60);
-
+    $("#destroyer").setPosition(0,max_top + 120);
+    $("#board").width(max_left + 320);
 }
 
   //alert("a");

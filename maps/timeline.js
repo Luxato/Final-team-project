@@ -25,7 +25,7 @@ timeLine.prototype.addItem = function(year, text) {
 	this.items.push(new_item);
 	//this.body.append(new_item.content);
 
-	this.container.height(this.container.height() + 150);
+	this.container.height(this.container.height() + 80);
 
 	this.lol = 2;
 
