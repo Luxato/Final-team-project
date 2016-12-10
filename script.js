@@ -58,3 +58,40 @@ var Breadcrumb = function() {
 };
 
 new Breadcrumb();
+
+// Uloha4 - pripomienkovac - Patrik Eliáš
+
+function deleteAll(){ 
+    localStorage.clear();
+    napisPripomienku();
+ 
+}
+
+function vytvorPripomienku(){
+  var name=prompt("Napíš pripomienku.");
+  localStorage.setItem(name, "");
+  napisPripomienku();
+  }
+
+function napisPripomienku(){
+  var list = '<div class="list" id="list">';;
+  for(i=0;i<localStorage.length;i++){
+      list += '<input ' + localStorage.key(i) + '" type="checkbox" name="' + localStorage.key(i) + '" onMouseUp="vymazPripomienku(' + i + ')">';
+      list += localStorage.key(i) + ' <br>';
+    
+  }
+  list += '</div>';
+  document.getElementById('listTask').innerHTML = list;
+}
+
+function vymazPripomienku(i){
+  localStorage.removeItem(localStorage.key(i));
+  napisPripomienku(); 
+} 
+
+function deleteAll(){ 
+    localStorage.clear();
+    napisPripomienku();
+ 
+}  
+// Koniec uloha4 Pripomienkovac - PAtrik Eliáš
