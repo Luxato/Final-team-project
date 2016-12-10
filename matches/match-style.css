@@ -4,8 +4,10 @@
 
 #desc { padding: 25px;  }
 
-#destroyer {float: right; width: 320px; height: 150px; border:solid; }
+#destroyer { width: 320px; height: 150px; border:1px solid #9DB668; }
 
 .destroyed {display: none}
 
-#timer {float: right;}
+#timer {display: block; border:2px solid #9DB668; width: 60px; border-radius: 8px; height: 30px; margin: 0 auto; text-align: center;}
+
+#score { font-size: 60px}
