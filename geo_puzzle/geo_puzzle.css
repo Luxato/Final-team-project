@@ -1,0 +1,138 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ui-widget-content {
+    border: none;
+    background: transparent;
+}
+
+#draggable, #draggable2, #draggable3, #draggable4, #draggable5, #draggable6 {
+    width: 150px;
+    height: 150px;
+    padding: 0.5em;
+}
+
+#draggable2 {
+    position: relative;
+    top: -198px;
+}
+
+#draggable3 {
+    position: relative;
+    top: -249px;
+}
+
+#draggable4 {
+    position: relative;
+    top: -568px;
+}
+
+#draggable5 {
+    position: relative;
+    top: -750px;
+}
+
+#draggable6 {
+    position: relative;
+    top: -731px;
+}
+
+.storage, #tutorial, #bubble, #evaluation, .none {
+    display: none;
+}
+#tutorial {
+    position: relative;
+    height: 500px;
+}
+#tutorial-holder {
+    position: absolute;
+    bottom: 0;
+}
+#gui button {
+    margin: 8px auto;
+    display: block;
+    width: 150px;
+}
+
+#gui img {
+    margin: 0 auto;
+    display: block;
+}
+
+#einstein {
+    position: absolute;
+    bottom: 0;
+}
+
+#next {
+    position: absolute;
+    bottom: 25px;
+    left: 645px;
+    width: 150px;
+    font-size: 22px;
+}
+
+#bubble {
+    width: 510px;
+    position: absolute;
+    left: 323px;
+    top: -195px;
+}
+
+#bubble-img {
+    width: 550px;
+}
+
+#bubble-block {
+    position: relative;
+}
+
+#bubble-text {
+    position: absolute;
+    top: -290px;
+    left: 115px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#namebox {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#name {
+    position: relative;
+    top: 285px;
+}
+
+#evaluation button {
+    margin: 8px auto;
+    display: block;
+    width: 150px;
+}
+
+#evaluation {
+    width: 350px;
+    margin: 25px auto 0 auto;
+    background: sandybrown;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#evaluation img {
+    padding: 0;
+    border-top: 1px solid dimgray;
+    border-bottom: 1px solid dimgray;
+}
+
+h1 {
+    text-align: center;
+}
+
+#highscoreBoard {
+    margin: 8px auto;
+    display: block;
+    width: 370px;
+    text-align: center;
+}

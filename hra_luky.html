@@ -16,132 +16,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .ui-widget-content {
-            border: none;
-            background: transparent;
-        }
-
-        #draggable, #draggable2, #draggable3, #draggable4, #draggable5, #draggable6 {
-            width: 150px;
-            height: 150px;
-            padding: 0.5em;
-        }
-
-        #draggable2 {
-            position: relative;
-            top: -198px;
-        }
-
-        #draggable3 {
-            position: relative;
-            top: -249px;
-        }
-
-        #draggable4 {
-            position: relative;
-            top: -568px;
-        }
-
-        #draggable5 {
-            position: relative;
-            top: -750px;
-        }
-
-        #draggable6 {
-            position: relative;
-            top: -731px;
-        }
-
-        .storage, #tutorial, #bubble, #evaluation, .none {
-            display: none;
-        }
-
-        #gui button {
-            margin: 8px auto;
-            display: block;
-            width: 150px;
-        }
-
-        #gui img {
-            margin: 0 auto;
-            display: block;
-        }
-
-        #einstein {
-            position: absolute;
-            bottom: 0;
-        }
-
-        #next {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            width: 150px;
-            font-size: 22px;
-        }
-
-        #bubble {
-            width: 510px;
-            position: absolute;
-            left: 653px;
-            top: 255px;
-        }
-
-        #bubble-img {
-            width: 550px;
-        }
-
-        #bubble-block {
-            position: relative;
-        }
-
-        #bubble-text {
-            position: absolute;
-            top: -290px;
-            left: 115px;
-            font-size: 40px;
-            font-weight: 700;
-        }
-
-        #namebox {
-            width: 400px;
-            margin: 0 auto;
-        }
-
-        #name {
-            position: relative;
-            top: 285px;
-        }
-
-        #evaluation button {
-            margin: 8px auto;
-            display: block;
-            width: 150px;
-        }
-
-        #evaluation {
-            width: 350px;
-            margin: 25px auto 0 auto;
-            background: sandybrown;
-            padding: 15px;
-            border-radius: 5px;
-        }
-
-        #evaluation img {
-            padding: 0;
-            border-top: 1px solid dimgray;
-            border-bottom: 1px solid dimgray;
-        }
-
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="geo_puzzle/geo_puzzle.css">
 </head>
 
 <body>
@@ -185,7 +60,12 @@
                 </ul>
                 <img src="geo_puzzle/img/einstein2.png" alt="einstein" width="300">
                 <button id="playAgain" type="button" class="btn btn-primary">Play again</button>
-                <button type="button" class="btn btn-primary">Highscore</button>
+                <button type="button" class="btn btn-primary highscore">Highscore</button>
+            </div>
+            <div id="highscoreBoard">
+                <ul>
+
+                </ul>
             </div>
             <div class="storage">
                 <div id="draggable" class="ui-widget-content">
@@ -213,6 +93,12 @@
                             Put continets in positions, where you think they might been.
                         </li>
                         <li>
+                            Better you guess positions of continets, the better your score will be.
+                        </li>
+                        <li>
+                            Max score for each continent is 10 points.
+                        </li>
+                        <li>
                             Click on button done when you will be done.
                         </li>
                     </ul>
@@ -222,12 +108,13 @@
             <div id="gui">
                 <img src="http://i872.photobucket.com/albums/ab287/Concordo/world.gif" alt="world">
                 <button id="play" type="button" class="btn btn-primary">Play</button>
-                <button type="button" class="btn btn-primary">Highscore</button>
+                <button type="button" class="btn btn-primary highscore">Highscore</button>
             </div>
             <div id="namebox" class="none">
                 <input id="name" type="text" class="form-control" placeholder="Write your name alien!">
             </div>
-            <div id="tutorial">
+            <div id="tutorial-holder">
+                <div id="tutorial">
                 <img id="einstein" src="geo_puzzle/img/einstein.png" alt="Einstein">
                 <div id="bubble">
                     <img id="bubble-img" src="geo_puzzle/img/bubble.png" alt="Bubble">
@@ -240,7 +127,7 @@
                 </div>
                 <button id="next" type="button" class="btn btn-success none">Next</button>
             </div>
-
+            </div>
 
         </div>
         <div class="row">
@@ -369,6 +256,7 @@
         });
 
         $('#play').on('click', function () {
+            $('#highscoreBoard').hide();
             $('#gui').fadeOut('slow', function () {
                 $('#tutorial').fadeIn('slow', function () {
                     $('#bubble').fadeIn('slow', function () {
@@ -403,8 +291,9 @@
                 $('#namebox').fadeOut('slow');
                 name = $('#name').val();
                 $('#bubble-text').css({
-                    "top": "-349px",
-                    "left": "136px"
+                    "top": "-308px",
+                    "left": "123px",
+                    "font-size": "33px"
                 });
                 $('#bubble-text').text(name + '! Let\'s help dumb people to arrange continents on Earth');
                 $('#einstein').fadeIn('slow', function () {
@@ -425,7 +314,6 @@
             var points = 0;
             var l = 0;
             for (var variable in world) {
-                //console.log(world[variable]);
                 $($('#evaluation ul li').find('span')[l]).text(world[variable].points);
                 points += world[variable].points;
                 l++
@@ -433,16 +321,56 @@
             $('.storage').fadeOut('slow', function () {
                 $('#evaluation').fadeIn('slow');
             });
+
+            var name = $('#name').val();
+            //var highscore = {};
+            highscore = [
+                {
+                  "name": name,
+                  "points": points
+                }
+            ];
+            var table = [];
+            table.push(highscore);
+            if(typeof localStorage.highscore == 'undefined') {
+                console.log('tu som');
+                localStorage.setItem("highscore", JSON.stringify(table));
+            } else {
+                console.log('som v druhej vetve');
+                table = JSON.parse(localStorage.highscore);
+                var tmp = 0;
+                for (var index in table) {
+                    console.log(table[index]);
+                    console.log(table[index]);
+                    if (table[index][0].points < points) {
+                        table.splice(index, 0, highscore);
+                        tmp = 1;
+                        console.log('vykonal sa splice na index ' + index);
+                        break;
+                    }
+                }
+                if(!tmp) {
+                    console.log('vykonal sa push');
+                    table.push(highscore);
+                }
+                localStorage.setItem("highscore", JSON.stringify(table));
+            }
+
         });
 
+        var score = 0;
+        for (var continent in world) {
+            score += world[continent].points;
+        }
+
         $('#playAgain').on('click', function () {
-            window.location.replace("http://localhost/zapocet/");
+            location.reload();
         })
     });
 
     function evaluation(x, y, keyx, keyy) {
         var points = 10;
-        var tolerance = 15;
+        var tolerance = 35;
         while (true) {
             if (between(Math.abs(x), Math.abs(keyx) - tolerance, Math.abs(keyx) + tolerance)) {
                 if (between(Math.abs(y), Math.abs(keyy) - tolerance, Math.abs(keyy) + tolerance)) {
@@ -453,7 +381,7 @@
             } else {
                 points -= 1;
             }
-            tolerance += 35;
+            tolerance += 40;
             if (points == 0) {
                 return points;
             }
@@ -463,6 +391,21 @@
     function between(x, min, max) {
         return x >= min && x <= max;
     }
+
+    $(function(){
+        $('.highscore').on('click', function () {
+            console.log('som tu');
+            var high = JSON.parse(localStorage.highscore);
+            if (high == undefined) {
+                $('#highscoreBoard').find('ul').append('Game hasn\'t been played yet');
+                return;
+            }
+            for (var variable in high) {
+                $('#highscoreBoard').find('ul').append('<li><strong>'+high[variable][0].name+'</strong> '+high[variable][0].points+'</li>')
+            }
+            $('#highscoreBoard').fadeIn('slow');
+        });
+    });
 </script>
 </body>
 
