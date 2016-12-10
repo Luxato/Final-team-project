@@ -60,7 +60,14 @@
         .storage, #tutorial, #bubble, #evaluation, .none {
             display: none;
         }
-
+        #tutorial {
+            position: relative;
+            height: 500px;
+        }
+        #tutorial-holder {
+            position: absolute;
+            bottom: 0;
+        }
         #gui button {
             margin: 8px auto;
             display: block;
@@ -80,7 +87,7 @@
         #next {
             position: absolute;
             bottom: 25px;
-            left: 50%;
+            left: 645px;
             width: 150px;
             font-size: 22px;
         }
@@ -88,8 +95,8 @@
         #bubble {
             width: 510px;
             position: absolute;
-            left: 653px;
-            top: 255px;
+            left: 323px;
+            top: -195px;
         }
 
         #bubble-img {
@@ -227,7 +234,8 @@
             <div id="namebox" class="none">
                 <input id="name" type="text" class="form-control" placeholder="Write your name alien!">
             </div>
-            <div id="tutorial">
+            <div id="tutorial-holder">
+                <div id="tutorial">
                 <img id="einstein" src="geo_puzzle/img/einstein.png" alt="Einstein">
                 <div id="bubble">
                     <img id="bubble-img" src="geo_puzzle/img/bubble.png" alt="Bubble">
@@ -240,7 +248,7 @@
                 </div>
                 <button id="next" type="button" class="btn btn-success none">Next</button>
             </div>
-
+            </div>
 
         </div>
         <div class="row">
@@ -403,8 +411,9 @@
                 $('#namebox').fadeOut('slow');
                 name = $('#name').val();
                 $('#bubble-text').css({
-                    "top": "-349px",
-                    "left": "136px"
+                    "top": "-328px",
+                    "left": "136px",
+                    "font-size": "33px"
                 });
                 $('#bubble-text').text(name + '! Let\'s help dumb people to arrange continents on Earth');
                 $('#einstein').fadeIn('slow', function () {
@@ -442,7 +451,7 @@
 
     function evaluation(x, y, keyx, keyy) {
         var points = 10;
-        var tolerance = 15;
+        var tolerance = 30;
         while (true) {
             if (between(Math.abs(x), Math.abs(keyx) - tolerance, Math.abs(keyx) + tolerance)) {
                 if (between(Math.abs(y), Math.abs(keyy) - tolerance, Math.abs(keyy) + tolerance)) {
