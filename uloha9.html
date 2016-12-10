@@ -162,10 +162,7 @@
         },
         5: {
             'image' : 'img/mojmirovce.jpg',
-            'content': 'Pôvodne tvorili areál dnešného mlyna 2 obrovské sýpky, ktoré boli pravdepodobne grófsky majetok. Na mape z vojenského mapovania  z roku 1839, na výreze z katastrálnej mapy chotára z roku 1857, ako i na katastrálnej mape z roku 1892 je na území dnešného areálu mlyna zakreslený areál pozostávajúci z objektov kompozične situovaných zhodne s dnešnými objektmi len vo väčšom pôdorysnom riešení. Na základe toho možno predpokladať, že ide o objekty sýpky, dnešný objekt mlyna a obytnej budovy.
-                V roku 1926 areál odkúpil Šebastián Ondra, mlynár, rodák zo Slavkova na Morave a pustil sa do jeho rekonštrukcie. Jeden z objektov prerobil na mlyn, druhý na sýpku a dom pre svoju rodinu.
-                V mlyne mali svoju miestnosť, tzv. šalandu, tovariši a učni, ktorí tam často prespávali. Celý mlyn poháňal spaľovací motor, keďže v tom čase ešte nebola v obci elektrina.  Ten zároveň poháňal aj dynamo, ktoré sa žiaľ nezachovalo. Vďaka nemu mal mlyn aj dom už vtedy elektrinu. Motor poháňal aj čerpadlo, ktoré naberalo vodu do chladiaceho systému a a na spotrebu v domácnosti. Údajne chcela odoberať odoberať elektrinu aj grófka.'
-              
+            'content': 'Pôvodne tvorili areál dnešného mlyna 2 obrovské sýpky, ktoré boli pravdepodobne grófsky majetok. Na mape z vojenského mapovania  z roku 1839, na výreze z katastrálnej mapy chotára z roku 1857, ako i na katastrálnej mape z roku 1892 je na území dnešného areálu mlyna zakreslený areál pozostávajúci z objektov kompozične situovaných zhodne s dnešnými objektmi len vo väčšom pôdorysnom riešení. Na základe toho možno predpokladať, že ide o objekty sýpky, dnešný objekt mlyna a obytnej budovy. V roku 1926 areál odkúpil Šebastián Ondra, mlynár, rodák zo Slavkova na Morave a pustil sa do jeho rekonštrukcie. Jeden z objektov prerobil na mlyn, druhý na sýpku a dom pre svoju rodinu. V mlyne mali svoju miestnosť, tzv. šalandu, tovariši a učni, ktorí tam často prespávali. Celý mlyn poháňal spaľovací motor, keďže v tom čase ešte nebola v obci elektrina.  Ten zároveň poháňal aj dynamo, ktoré sa žiaľ nezachovalo. Vďaka nemu mal mlyn aj dom už vtedy elektrinu. Motor poháňal aj čerpadlo, ktoré naberalo vodu do chladiaceho systému a a na spotrebu v domácnosti. Údajne chcela odoberať odoberať elektrinu aj grófka.'
         }
     };
 
@@ -193,7 +190,7 @@
         for (var index in data.pamiatky) {
             $('#panel').append('<div id="panel' + i + '" class="col-md-6 custom-panel" style="border:1px solid ' + getRandomColor() + ';background-color: ' + getRandomColor() + ';">'
                 + '<h2>' + data.pamiatky[index].nazov + '</h2>'
-                + '<img src="' + attach[index].image + '" alt="Obrazok" width="350">'
+                + '<img src="' + attach[index].image + '" alt="Obrazok" width="200">'
                 + '<span class="year">Rok vzniku: ' + data.pamiatky[index].rokVzniku + '</span>'
                 + '<div>' + attach[index].content + '</div>'
                 + '</div>');
