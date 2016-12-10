@@ -295,7 +295,7 @@ var pocet = parseInt( document.getElementById('pocet').value);
 
 validacia(pocet);
 
-  for (var i = 0; i <13; i++) {
+  for (var i = 0; i <12; i++) {
     this[i] = new Image();
     this[i].src = imgdir + "disk"+[i+1]+".png";
   }
