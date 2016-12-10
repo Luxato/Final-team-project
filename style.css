@@ -120,13 +120,17 @@ li.actual {
 
 #pripomienky button{
      margin-top: 40px;
-    background: #ADD8E6;
+    background: #C7E3EC;
     padding:7px;
     padding-left: 12px;
     padding-right: 12px;
     border: 1px solid white;
     color: #337ab7;
     margin-left: 0px;
+}
+
+#pripomienky button:hover{
+    background: #DDECF1;
 }
 #listTask input{
     margin-right: 10px;
@@ -139,3 +143,49 @@ li.actual {
 }
 
 /*Koniec Uloha4 pripomienkovac - PAtirk Eliáš*/
+
+/*Uloha3 pripomienkovac - PAtirk Eliáš*/
+#meniny{
+    color: #337ab7;
+}
+#meniny button{
+    background: #C7E3EC;
+    margin-top: 10px;
+    padding:7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px solid white;
+    color: #337ab7;
+}
+#meniny button:hover{
+    background: #DDECF1;
+}
+#tp1{
+    display: inline;
+    margin-left: 5px;
+}
+#datum, #meno{
+    padding:2px;
+      width: 70px;
+      margin-left: 4px;
+      border: 1px solid white
+
+}
+
+#meno{
+    width: 170px;
+}
+#zisteneMeno{
+    margin-left: 110px;
+    margin-top: -55px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    width: 170px;
+    padding: 7px;
+    display: none;
+}
+#zistenyDatum{
+    margin-left: 120px;
+    margin-top: -27px;
+    font-weight: bold;
+}
