@@ -36,47 +36,46 @@ $(document).ready(function() {
     });
 
 
-
     function random() {
 
-        $('#triangle1').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#triangle1').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#triangle2').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#triangle2').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#triangle3').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#triangle3').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#triangle4').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#triangle4').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#triangle5').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#triangle5').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#square').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#square').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
-        $('#parallelogram').animate({"left":Math.round(Math.random()*1000) +"px",
+        $('#parallelogram').animate({"left":Math.round(Math.random()*500) +"px",
             "top":Math.round(Math.random()*300)+"px"}, 1000);
     }
 
-random();
+    random();
+
     $('#random').click(random);
 
     $('#solution').click(function() {
 
+        $('#triangle1').animate({"left": 50,
+            "top":130}, 3000);
+        $('#triangle2').animate({"left": 50,
+            "top":130}, 3000);
+        $('#triangle3').animate({"left": 350,
+            "top":130}, 3000);
+        $('#triangle4').animate({"left": 150,
+            "top":330}, 3000);
+        $('#triangle5').animate({"left": 250,
+            "top":330}, 3000);
+        $('#square').animate({"left": 250,
+            "top":130}, 3000);
+        $('#parallelogram').animate({"left": 150,
+            "top":330}, 3000);
 
-        $('#triangle1').animate({"left": 560,
-            "top":260}, 3000);
-        $('#triangle2').animate({"left": 560,
-            "top":260}, 3000);
-        $('#triangle3').animate({"left": 860,
-            "top":260}, 3000);
-        $('#triangle4').animate({"left": 660,
-            "top":460}, 3000);
-        $('#triangle5').animate({"left": 760,
-            "top":460}, 3000);
-        $('#square').animate({"left": 760,
-            "top":260}, 3000);
-        $('#parallelogram').animate({"left": 660,
-            "top":460}, 3000);
-
-random();
+    setTimeout(function(){ random(); }, 4000);
 
     });
 
@@ -98,24 +97,33 @@ window.showTutorial = function () {
 };
 
 
-
-function timedCount() {
-    document.getElementById("txt").value = c;
-    c-=2;
-    t = setTimeout(function(){ timedCount() }, 3000);
+if (localStorage.game) {
+    $("#prevpoints").html(localStorage.game);
+    $("#bestpoints").html(localStorage.bestgame);
+} else {
+    $("#results").hide();
 }
 
-function startCount() {
-    if (!timer_is_on) {
-        timer_is_on = 1;
-        timedCount();
-    }
-}
 
 function stopCount() {
-    clearTimeout(t);
-    timer_is_on = 0;
-    alert('Tvoje skore je ' +c);
+    var solution = 870*700;
+    var user_score = count_whitespace("");
+    var left = count_whitespace("left");
+    var top = count_whitespace("top");
+    console.log(left);
+    console.log(top);
+    var result = (((left / 870)*100) + ((top / 700)*100)) / 2;
+    if (result > 100) {
+        result = ((result-100)-100);
+    }
+    if (result < 0) {
+        result = result*(-1);
+    }
+    result = Math.round(result);
+    localStorage.game = result;
+    if (localStorage.bestgame < result || typeof(localStorage.bestgame) == "undefined")
+        localStorage.bestgame = result;
+    alert('Tvoje skore je ' + result +' bodov');
 }
 
 
@@ -123,6 +131,17 @@ function reset() {
     location.reload();
 }
 
-
-
-
+function count_whitespace(what){
+    var left = 0;
+    var top = 0;
+    $("#block").children().each( function(){
+        left += (($(this).position().left-40)/100).toFixed(1)*100;
+        top += (($(this).position().top-130)/100).toFixed(1)*100;
+    });
+    if (what == "left")
+        return left;
+    else if (what == "top")
+        return top;
+    else 
+        return left*top;
+}
