@@ -115,8 +115,8 @@ function sortTimeLine(a,b)
 	var l1= y1.length;
 	var l2= y2.length;
 
-	console.log(y1);
-	console.log(y2);
+	//console.log(y1);
+	//console.log(y2);
 
 	if(y1.substr(l1-4) == ".st.")
 	{
@@ -139,10 +139,10 @@ function sortTimeLine(a,b)
 		y2=parseInt(y2);
 	}
 	
-	console.log(y1);
-	console.log(y2);
+	//console.log(y1);
+	//console.log(y2);
 
-	console.log(y1-y2)
+	//console.log(y1-y2)
 
 	return y1 - y2;
 }

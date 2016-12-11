@@ -89,7 +89,7 @@ function bestFit(zapalka, final)
     //alert(" scitam " + final[i].left + " s " + eps + " a  dostavam: " +  left_high);
     var top_low = +final[i].top - eps;
     var top_high = +final[i].top +  +eps;
-    var rot_low = +final[i].rot + 0;
+    var rot_low = +final[i].rot - 180;
     var rot_high = +final[i].rot + 180;
     //alert("testing againsts " + final[i].left + " " + final[i].top);
     if((pos.left > left_low) && (pos.left < left_high))
@@ -98,7 +98,7 @@ function bestFit(zapalka, final)
       if((pos.top > top_low) &&(pos.top < top_high))
       {
        // alert(pos.top + " in " + top_low + " " + top_high);
-        if((zapalka.getRotation() == rot_low) || (zapalka.getRotation() == rot_high))
+        if((zapalka.getRotation() == parseInt(final[i].rot)) || (zapalka.getRotation() == rot_low) || (zapalka.getRotation() == rot_high))
         {
          // alert("matched");
           var dis = Math.sqrt(Math.pow((pos.left - final[i].left),2) + Math.pow((pos.top - final[i].top),2));
@@ -168,8 +168,10 @@ function validate(index)
 if(zp == false)
 {
   score += (200 - (minutes * 60 + seconds)) * parseInt(games[index].diff);
-  reset_time();
+  
 }
+zp=false;
+reset_time();
  // setTimeout(function(){
    // console.log("managed to win")
   //},3000);
@@ -448,6 +450,7 @@ function next() {
     {
       destroy();
       stopTimer();
+      started=false;
     });
 
     $("#showScore").click(function () {
